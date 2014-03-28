@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/b3/2011/aggregator/1.1.0">
+  <validationSets label="main">
+    <contributions label="4.4">
+      <repositories location="http://download.eclipse.org/eclipse/updates/4.4milestones/S-4.4M6-201403061200/"/>
+    </contributions>
+  </validationSets>
+</aggregator:Aggregation>

@@ -1,16 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<groupId>com.temenos.ds.op</groupId>
-	<artifactId>com.temenos.ds.op.parent</artifactId>
+
+	<groupId>com.temenos.ds.op.base</groupId>
+	<artifactId>com.temenos.ds.op.base.modules</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<modules>
-		<!-- <module>base/maven/com.temenos.ds.op.base.parent</module> -->
-		<module>base</module>
-		<module>refex/com.temenos.ds.op.refex.parent</module>
+<!-- 	
+		<module>plugins/com.temenos.ds.op.base.bundle</module>
+		<module>features/com.temenos.ds.op.base.feature</module>
+-->	
+		<module>releng/com.temenos.ds.op.base.sdk.repository</module>
 	</modules>
-	
+
 </project>

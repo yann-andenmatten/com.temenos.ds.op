@@ -14,11 +14,48 @@
 	</properties>
 
 	<repositories>
+		<!-- NOTE: Careful #1 - when adding new features in category.xml, make sure you're NOT on a mirror in settings.xml which doesn't contain that yet, and NOT offline -->
+		<!-- NOTE: Careful #2 - when adding a new <repository> here, consider adding a <mirror> in settings.xml, too. -->
+		
+		<repository>
+			<id>base.b3repository</id>
+			<layout>p2</layout>
+			<!--  no good: <url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.b3repository/build/final/</url>  -->
+			<url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.repomirror/target/repository</url>
+		</repository>
+<!-- 		
+		<repository>
+			<id>takari-m2e-latest</id>
+			<layout>p2</layout>
+			<url>http://repository.takari.io:8081/nexus/content/sites/m2e.extras/m2e/1.5.0/N/LATEST/</url>
+		</repository>
+ -->
+ <!--
 		<repository>
 			<id>eclipse-project-luna</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/eclipse/updates/4.4milestones</url>
 		</repository>
+		<repository>
+			<id>eclipse-release-luna</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/luna</url>
+		</repository>
+		<repository>
+			<id>eclipse-m2e-milestones</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/m2e/milestones/1.5/1.5.0.20130812-0834</url>
+		</repository>
+		<repository>
+			<id>central-m2eclipse-tycho</id>
+			<layout>p2</layout>
+			<url>http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.7.0/N/0.7.0.201309291400/</url>
+		</repository>
+ -->		
+		
+			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
+	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
+		<url>http://download.vogella.com/luna/e4tools</url> </repository> -->
 	</repositories>
 
 	<build>
@@ -82,7 +119,12 @@
 	</build>
 
 	<modules>
+<!--	
 		<module>../../plugins/com.temenos.ds.op.base.bundle</module>
 		<module>../../features/com.temenos.ds.op.base.feature</module>
+ -->		
+		<module>../../releng/com.temenos.ds.op.base.sdk.repository</module>
 	</modules>
+
+
 </project>

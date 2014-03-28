@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="org.eclipse.m2e.feature"
+         version="0.0.0"/>
+
    <plugin
          id="com.temenos.ds.op.base.bundle"
          download-size="0"

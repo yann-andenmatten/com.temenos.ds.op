@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.temenos.ds.op.base</groupId>
+		<artifactId>com.temenos.ds.op.base.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<!-- <relativePath>../../com.temenos.ds.op.base.parent</relativePath>  -->
+	</parent>
+
+	<artifactId>com.temenos.ds.op.base.repomirror</artifactId>
+	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<source>
+						<repository>
+							<url>http://download.eclipse.org/eclipse/updates/4.4milestones/S-4.4M6-201403061200/</url>
+							<layout>p2</layout> <!-- supported layouts are "p2-metadata", "p2-artifacts", and "p2" (for joint repositories; default) -->
+						</repository>
+					</source>
+
+					<!-- starting from here all configuration parameters are optional -->
+					<!-- they are only shown here with default values for documentation	purpose -->
+
+					<!-- List of IUs to mirror. If omitted, allIUs will be mirrored. -->
+					<!-- Omitted IU version element means latest version of the IU -->
+					<ius>
+<!-- 					
+						<iu>
+							<id>org.eclipse.rcp.feature.group</id>
+						</iu>
+ -->						
+						<!-- since tycho-extras 0.17.0, IUs can also be selected using p2 match queries -->
+						<!-- http://wiki.eclipse.org/Query_Language_for_p2 -->
+<!-- 						
+						<iu>
+							<query>
+								<expression>id == $0 && version == $1</expression>
+								<parameters>org.eclipse.tycho.sampleid,1.0.0</parameters>
+							</query>
+						</iu>
+ -->
+					</ius>
+					<destination>${project.build.directory}/repository</destination> <!-- The destination directory to mirror to. -->
+					<followStrictOnly>false</followStrictOnly> <!-- Whether only strict dependencies should be followed ("strict" means perfect version match). -->
+					<includeOptional>true</includeOptional> <!-- Whether or not to follow optional requirements. -->
+					<!-- Whether or not to follow non-greedy requirements. -->
+					<includeNonGreedy>true</includeNonGreedy>
+					<!-- Filter properties. E.g. filter only one platform -->
+<!-- TODO test & activate this:					
+					<filter>
+						<osgi.os>linux</osgi.os>
+						<osgi.ws>gtk</osgi.ws>
+						<osgi.arch>x86_64</osgi.arch>
+					</filter>
+
+					<filter>
+						<osgi.os>win32</osgi.os>
+						<osgi.ws>win32</osgi.ws>
+						<osgi.arch>x86_64</osgi.arch>
+					</filter>
+ -->
+					<latestVersionOnly>false</latestVersionOnly> <!-- Whether to filter the resulting set of IUs to only include the latest version of each IU -->
+					<mirrorMetadataOnly>false</mirrorMetadataOnly> <!-- don't mirror artifacts, only metadata -->
+					<compress>true</compress> <!-- whether to compress the content.xml/artifacts.xml -->
+					<append>true</append> <!-- whether to append to the target repository content -->
+					
+					 <!-- whether to mirror pack200 artifacts also. Available since tycho-extras 0.17.0 -->
+					 <!-- This seems to download many things twice (packed & unpacked).. probably useful for a mirror served over HTTP, but less for local one like in this use case, so false -->
+					<includePacked>false</includePacked>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
