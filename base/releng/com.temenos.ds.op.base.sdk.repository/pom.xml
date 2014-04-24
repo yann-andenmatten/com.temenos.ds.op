@@ -6,7 +6,7 @@
 		<groupId>com.temenos.ds.op.base</groupId>
 		<artifactId>com.temenos.ds.op.base.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../../com.temenos.ds.op.base.parent</relativePath>
+		<relativePath>../com.temenos.ds.op.base.parent</relativePath>
 	</parent>
 
 	<artifactId>com.temenos.ds.op.base.sdk.repository</artifactId>

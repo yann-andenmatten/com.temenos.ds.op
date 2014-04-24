@@ -9,6 +9,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>releng/com.temenos.ds.op.base.parent</module>
 <!-- 	
 		<module>plugins/com.temenos.ds.op.base.bundle</module>
 		<module>features/com.temenos.ds.op.base.feature</module>

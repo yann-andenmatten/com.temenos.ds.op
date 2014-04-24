@@ -8,9 +8,8 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-		<!-- <module>base/maven/com.temenos.ds.op.base.parent</module> -->
 		<module>base</module>
-		<module>refex/com.temenos.ds.op.refex.parent</module>
+		<!-- <module>refex/com.temenos.ds.op.refex.parent</module> -->
 	</modules>
 	
 </project>
