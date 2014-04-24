@@ -18,10 +18,12 @@
 		<!-- NOTE: Careful #2 - when adding a new <repository> here, consider adding a <mirror> in settings.xml, too. -->
 		
 		<repository>
-			<id>base.b3repository</id>
+			<id>base.repomirror</id>
 			<layout>p2</layout>
 			<!--  no good: <url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.b3repository/build/final/</url>  -->
-			<url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.repomirror/target/repository</url>
+			<!-- <url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.repomirror/target/repository</url> -->
+			<!-- TODO how to use relative path here... -->
+			<url>file:///home/vorburger/dev/git/com.temenos.ds.op/mirror</url>
 		</repository>
 <!-- 		
 		<repository>
@@ -117,14 +119,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<modules>
-<!--	
-		<module>../../plugins/com.temenos.ds.op.base.bundle</module>
-		<module>../../features/com.temenos.ds.op.base.feature</module>
- -->		
-		<module>../../releng/com.temenos.ds.op.base.sdk.repository</module>
-	</modules>
-
 
 </project>

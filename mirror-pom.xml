@@ -6,7 +6,7 @@
 		<groupId>com.temenos.ds.op.base</groupId>
 		<artifactId>com.temenos.ds.op.base.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<!-- <relativePath>../../com.temenos.ds.op.base.parent</relativePath>  -->
+		<relativePath>base/releng/com.temenos.ds.op.base.parent</relativePath>
 	</parent>
 
 	<artifactId>com.temenos.ds.op.base.repomirror</artifactId>
@@ -56,11 +56,12 @@
 						</iu>
  -->
 					</ius>
-					<destination>${project.build.directory}/repository</destination> <!-- The destination directory to mirror to. -->
+					<destination>mirror</destination> <!-- The destination directory to mirror to. NOT ${project.build.directory}/ - we don't want it to get cleared on clean -->
 					<followStrictOnly>false</followStrictOnly> <!-- Whether only strict dependencies should be followed ("strict" means perfect version match). -->
 					<includeOptional>true</includeOptional> <!-- Whether or not to follow optional requirements. -->
 					<!-- Whether or not to follow non-greedy requirements. -->
 					<includeNonGreedy>true</includeNonGreedy>
+					
 					<!-- Filter properties. E.g. filter only one platform -->
 <!-- TODO test & activate this:					
 					<filter>

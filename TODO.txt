@@ -1,8 +1,12 @@
 
+/com.temenos.ds.op.parent/base/releng/com.temenos.ds.op.base.parent/pom.xml
+<!-- TODO how to use relative path here... -->
+
 why gogo: CommandNotFoundException: Command not found: gosh
 org.apache.felix.gogo.runtime.CommandNotFoundException: Command not found: gosh 
+use juno instead of luna? branch off.. post Q. Kai email?
 
-CloudBees job
+CloudBees job or Jenkins job.. use offline, do not pull results from previous build
 
 define base.feature & base.sdk.ide.feature feature, list all deps in it, depend on that in product (instead of listing in product)
 that will allow other in-house product.feature to depend on it for hiearchy  
@@ -25,6 +29,14 @@ decide about and clear com.temenos.ds.op.base.bundle & com.temenos.ds.op.base.fe
 
 move stuff from base/maven/com.temenos.ds.op.base.parent/pom.xml into /pom.xml
 
+group & artificat ID sholdn't be repeated stupidely like that.. shorten them, use something to still produce nice JARs?
+
 aggregate mirros repo in CL.. use https://wiki.eclipse.org/Tycho/Additional_Tools#mirror_goal instead b3?
 
+Code Format enforcement
+XML Formatting enforcement, how?
+FindBugs
+Maven rules  enforcement, how? Only modules etc. Or just generate ALL pom.xml, from directory names, via simple Java tool? 
+
 increase version numbers from 1.0.0 to 10.0.0
+mvn set:version ? Tycho has it's own.. document this

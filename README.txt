@@ -9,7 +9,8 @@ base/ has build scripts etc. and raw low level infrastructure code shared betwee
 How to build
 ============
 
-Just mvn clean install! ;-)
+Initially, just once: rm -rf mirror/; mvn -f mirror-pom.xml prepare-package
+Then just mvn -o clean package! ;-)
 
 The idea is to develop using the DS.open SDK Package which has everything needed (at the right version),
 and not your own Eclipse download.  That product is built by this project, look around and learn how.
