@@ -1,25 +1,15 @@
-use juno instead of luna? branch off.. post Q. Kai email?
-less configuration/*.log: IllegalStateException: Unable to acquire application service. Ensure that the org.eclipse.core.runtime bundle is resolved and started (see config.ini).
-
-why gogo: CommandNotFoundException: Command not found: gosh
-org.apache.felix.gogo.runtime.CommandNotFoundException: Command not found: gosh 
-
-Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ? Nothing on G.
-
-CloudBees job or Jenkins job.. use offline, do not pull results from previous build
-
-define base.feature & base.sdk.ide.feature feature, list all deps in it, depend on that in product (instead of listing in product)
-that will allow other in-house product.feature to depend on it for hiearchy  
-
-learn more from http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/
-
 add to com.temenos.ds.op.sdk.product:
+	m2e
 	egit
 	xtext
+
+UI Testing.. Xored?
+basic product integration test.. startup etc. e.g. logically broken (but buildable) *product & *feature should be detected
 
 tests https://wiki.eclipse.org/Tycho/Reference_Card#Test_bundles
 
 SDK should have all SRC: https://wiki.eclipse.org/Tycho/Reference_Card#Source_Bundles
+	http://eclipse.org/tycho/sitedocs/tycho-source-plugin/plugin-info.html
 
 decide about and clear com.temenos.ds.op.base.bundle & com.temenos.ds.op.base.feature (actually not needed, that should be in the refex..)  
 
@@ -31,10 +21,47 @@ aggregate mirros repo in CL.. use https://wiki.eclipse.org/Tycho/Additional_Tool
 
 Code Format enforcement
 XML Formatting enforcement, how?
+Null Analysis
+	https://wiki.eclipse.org/Tycho/FAQ#Can_I_use_the_Tycho_compiler_support_in_non-OSGi_projects.2C_too.3F
 FindBugs
-Maven rules  enforcement, how? Only modules etc. 
+https://wiki.eclipse.org/Tycho/FAQ#How_to_configure_warning.2Ferror_settings_of_the_OSGi_compiler.3F
+	http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Ftasks%2Ftask-using_batch_compiler.htm
+https://wiki.eclipse.org/Tycho/FAQ#What_other_options_does_the_Tycho_compiler_support.3F
+http://eclipse.org/tycho/sitedocs/tycho-compiler-plugin/compile-mojo.html
+http://eclipse.org/tycho/sitedocs/tycho-packaging-plugin/plugin-info.html ?
+
+Produce normal Maven artifacts.. for Xtext Standalone Builder - https://wiki.eclipse.org/Tycho/How_Tos/Dependency_on_pom-first_artifacts
+
+Better default preferences AND DOCUMENT THEM in readme
+	Plugin Development > Include all plug-ins from target in Java search
 
 Generate ALL pom.xml, from directory names, via simple Java tool, later packaged as Maven plug-in? A la https://wiki.eclipse.org/Tycho/Reference_Card#Generating_POM_files
+Maven rules  enforcement, how? Only modules etc. 
+
+Git rev. in About box.. tycho-buildtimestamp-jgit in http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/tree/releng/org.eclipse.epp.config/parent/pom.xml
+	https://wiki.eclipse.org/Tycho/FAQ#How_do_I_embed_a_configurable_build_version.3F
+Other useful http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/tree/releng/org.eclipse.epp.config/parent/pom.xml ?
 
 increase version numbers from 1.0.0 to 10.0.0
-mvn set:version ? Tycho has it's own.. document this
+mvn set:version ? Tycho own..http://eclipse.org/tycho/sitedocs/tycho-release/tycho-versions-plugin/plugin-info.html -- document this in README
+
+read new book.. 
+	http://www.packtpub.com/eclipse-4-plugin-development-by-example-beginners-guide/book & https://github.com/alblue/com.packtpub.e4
+	Vogella?
+	
+Logging ... http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Flaunchers%2Ftracing.htm
+https://wiki.eclipse.org/Tycho/FAQ#How_to_switch_on_eclipse_tracing_during_test_execution.3F
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=358968 ?
+
+http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/tree/releng/org.eclipse.epp.config/tools/createArchives.sh - why?
+
+learn more from http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/
+
+clean-up features.. no CVS, possible?
+
+more useful lil' plugin (doc)
+	JUnit loop
+
+Non-SDK com.temenos.ds.op.base.repository & product
+
+Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ? Nothing on G.

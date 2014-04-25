@@ -8,7 +8,7 @@
   	<relativePath>../../releng/com.temenos.ds.op.base.parent</relativePath>
   </parent>
   
-  <artifactId>com.temenos.ds.op.base.feature</artifactId>
+  <artifactId>com.temenos.ds.op.base.sdk.feature</artifactId>
   <packaging>eclipse-feature</packaging>
   
 </project>

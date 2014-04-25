@@ -12,8 +12,9 @@
 		<module>releng/com.temenos.ds.op.base.parent</module>
 <!-- 	
 		<module>plugins/com.temenos.ds.op.base.bundle</module>
-		<module>features/com.temenos.ds.op.base.feature</module>
 -->	
+		<module>features/com.temenos.ds.op.base.feature</module>
+		<module>features/com.temenos.ds.op.base.sdk.feature</module>
 		<module>releng/com.temenos.ds.op.base.sdk.repository</module>
 	</modules>
 

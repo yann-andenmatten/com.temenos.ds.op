@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.temenos.ds.op.base.sdk.feature"
+      label="Feature"
+      version="1.0.0.qualifier"
+      provider-name="TEMENOS">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipse.cvs.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.e4.rcp.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.core.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.core.ssl.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.httpclient4.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.ssl.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.common.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.compendium.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.core.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.core.feature.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.extras.feature.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.rcp.feature.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.user.ui.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.serverside.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.weaving.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.help.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.jdt.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.pde.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.rcp.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk.examples.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk.tests"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.test"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.compendium.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.core.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.rcp.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.rcp.feature.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.serverside.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.weaving.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk.examples"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk.examples.source"
+         version="0.0.0"/>
+
+   <includes
+         id="com.temenos.ds.op.base.feature"
+         version="0.0.0"/>
+
+</feature>
