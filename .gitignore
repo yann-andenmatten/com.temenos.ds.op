@@ -18,3 +18,4 @@ xtend-gen
 *.iws
 
 /mirror
+/mirror.luna

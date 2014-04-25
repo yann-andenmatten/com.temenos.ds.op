@@ -42,37 +42,53 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.e4.rcp" version="1.3.100.v20140305-2153"/>
-      <feature id="org.eclipse.e4.rcp.source" version="1.3.100.v20140305-2153"/>
-      <feature id="org.eclipse.emf.ecore"/>
-      <feature id="org.eclipse.emf.common"/>
-      <feature id="org.eclipse.help" version="2.0.102.v20140306-1200"/>
-      <feature id="org.eclipse.help.source" version="2.0.102.v20140306-1200"/>
-      <feature id="org.eclipse.jdt" version="3.10.0.v20140306-1200"/>
-      <feature id="org.eclipse.jdt.source" version="3.10.0.v20140306-1200"/>
-      <feature id="org.eclipse.pde" version="3.10.0.v20140306-1200"/>
-      <feature id="org.eclipse.pde.source" version="3.10.0.v20140306-1200"/>
-      <feature id="org.eclipse.platform" version="4.4.0.v20140306-1200"/>
-      <feature id="org.eclipse.platform.source" version="4.4.0.v20140306-1200"/>
-      <feature id="org.eclipse.rcp" version="4.4.0.v20140306-1200"/>
-      <feature id="org.eclipse.rcp.configuration" version="1.0.0.v20140303-1722"/>
-      <feature id="org.eclipse.rcp.source" version="4.4.0.v20140306-1200"/>
-      <feature id="org.eclipse.sdk" version="4.4.0.v20140306-1642"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
-      <feature id="org.eclipse.equinox.p2.core.feature"/>
-      <feature id="org.eclipse.ecf.core.ssl.feature"/>
-      <feature id="org.eclipse.equinox.p2.extras.feature.source"/>
-      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
-      <feature id="org.eclipse.equinox.p2.user.ui"/>
-      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
-      <feature id="org.eclipse.equinox.p2.rcp.feature.source"/>
-      <feature id="org.eclipse.ecf.filetransfer.feature"/>
-      <feature id="org.eclipse.ecf.core.feature"/>
-      <feature id="org.eclipse.equinox.p2.user.ui.source"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
-      <feature id="org.eclipse.equinox.p2.core.feature.source"/>
-      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.core.runtime.feature" version="1.1.0.v20140110-1610"/>
+      <feature id="org.eclipse.cvs" version="1.4.0.v20140221-1700"/>
+      <feature id="org.eclipse.cvs.source" version="1.4.0.v20140221-1700"/>
+      <feature id="org.eclipse.e4.rcp" version="1.2.2.v20140206-1358"/>
+      <feature id="org.eclipse.e4.rcp.source" version="1.2.2.v20140206-1358"/>
+      <feature id="org.eclipse.emf.common" version="2.9.2.v20131212-0545"/>
+      <feature id="org.eclipse.emf.ecore" version="2.9.2.v20131212-0545"/>
+      <feature id="org.eclipse.equinox.compendium.sdk" version="3.8.0.v20130813-1853"/>
+      <feature id="org.eclipse.equinox.core.feature" version="1.1.0.v20140110-1610"/>
+      <feature id="org.eclipse.equinox.core.sdk" version="3.8.0.v20140114-1344"/>
+      <feature id="org.eclipse.equinox.executable" version="3.6.0.v20140117-1004"/>
+      <feature id="org.eclipse.equinox.p2.core.feature" version="1.2.1.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.core.feature.source" version="1.2.1.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.discovery.feature" version="1.0.100.v20130502-0334"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature" version="1.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature.source" version="1.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature" version="1.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature.source" version="1.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.sdk" version="3.8.1.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.user.ui" version="2.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.p2.user.ui.source" version="2.2.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.sdk" version="3.9.0.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.server.core" version="1.2.0.v20140110-1610"/>
+      <feature id="org.eclipse.equinox.server.jetty" version="1.1.1.v20140113-1859"/>
+      <feature id="org.eclipse.equinox.server.p2" version="1.2.1.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.serverside.sdk" version="3.9.1.v20140221-1852"/>
+      <feature id="org.eclipse.equinox.weaving.sdk" version="1.0.200.v20130327-1442"/>
+      <feature id="org.eclipse.help" version="2.0.2.v20140221-1700"/>
+      <feature id="org.eclipse.help.source" version="2.0.2.v20140221-1700"/>
+      <feature id="org.eclipse.jdt" version="3.9.2.v20140221-1700"/>
+      <feature id="org.eclipse.jdt.source" version="3.9.2.v20140221-1700"/>
+      <feature id="org.eclipse.pde" version="3.9.1.v20140221-1700"/>
+      <feature id="org.eclipse.pde.api.tools.ee.feature" version="1.0.0.v20130327-1631"/>
+      <feature id="org.eclipse.pde.source" version="3.9.1.v20140221-1700"/>
+      <feature id="org.eclipse.platform" version="4.3.2.v20140221-1852"/>
+      <feature id="org.eclipse.platform.source" version="4.3.2.v20140221-1852"/>
+      <feature id="org.eclipse.rcp" version="4.3.2.v20140221-1700"/>
+      <feature id="org.eclipse.rcp.configuration" version="1.0.0.v20140117-0610"/>
+      <feature id="org.eclipse.rcp.source" version="4.3.2.v20140221-1700"/>
+      <feature id="org.eclipse.releng.tools" version="3.5.0.v20140203-1326"/>
+      <feature id="org.eclipse.sdk" version="4.3.2.v20140221-1852"/>
+      <feature id="org.eclipse.sdk.tests" version="4.3.0.v20140221-2329"/>
+      <feature id="org.eclipse.test" version="3.6.0.v20140203-1326"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="0" />
+   </configurations>
 
 </product>

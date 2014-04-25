@@ -12,6 +12,7 @@ How to build
 1. Initially, just once: rm -rf mirror/; mvn -f mirror-pom.xml prepare-package
 2. Then just mvn -o clean package! ;-)
 3. Tata: $ base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/eclipse
+   OR less base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/configuration/*.log
 
 The idea is to develop using the DS.open SDK Package which has everything needed (at the right version),
 and not your own Eclipse download.  That product is built by this project, look around and learn how.

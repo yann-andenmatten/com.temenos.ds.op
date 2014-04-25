@@ -1,9 +1,10 @@
-
-Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ?
+use juno instead of luna? branch off.. post Q. Kai email?
+less configuration/*.log: IllegalStateException: Unable to acquire application service. Ensure that the org.eclipse.core.runtime bundle is resolved and started (see config.ini).
 
 why gogo: CommandNotFoundException: Command not found: gosh
 org.apache.felix.gogo.runtime.CommandNotFoundException: Command not found: gosh 
-use juno instead of luna? branch off.. post Q. Kai email?
+
+Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ? Nothing on G.
 
 CloudBees job or Jenkins job.. use offline, do not pull results from previous build
 
@@ -12,18 +13,14 @@ that will allow other in-house product.feature to depend on it for hiearchy
 
 learn more from http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/
 
-repomirror should not redownload if there already is in target
-(something, anything; will manually delete - or can checksum??)
-mvn clean should NOT clear out this mirror repo
- 
-repomirror platform filter - only Win 64 & Linux 64 (for now; Mac later) - how to several filter?
- 
 add to com.temenos.ds.op.sdk.product:
 	egit
 	xtext
 
-path to b3repository/build/final NOT absolute hard-coded..
- 
+tests https://wiki.eclipse.org/Tycho/Reference_Card#Test_bundles
+
+SDK should have all SRC: https://wiki.eclipse.org/Tycho/Reference_Card#Source_Bundles
+
 decide about and clear com.temenos.ds.op.base.bundle & com.temenos.ds.op.base.feature (actually not needed, that should be in the refex..)  
 
 move stuff from base/maven/com.temenos.ds.op.base.parent/pom.xml into /pom.xml
@@ -35,7 +32,9 @@ aggregate mirros repo in CL.. use https://wiki.eclipse.org/Tycho/Additional_Tool
 Code Format enforcement
 XML Formatting enforcement, how?
 FindBugs
-Maven rules  enforcement, how? Only modules etc. Or just generate ALL pom.xml, from directory names, via simple Java tool? 
+Maven rules  enforcement, how? Only modules etc. 
+
+Generate ALL pom.xml, from directory names, via simple Java tool, later packaged as Maven plug-in? A la https://wiki.eclipse.org/Tycho/Reference_Card#Generating_POM_files
 
 increase version numbers from 1.0.0 to 10.0.0
 mvn set:version ? Tycho has it's own.. document this
