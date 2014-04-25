@@ -1,6 +1,5 @@
 
-/com.temenos.ds.op.parent/base/releng/com.temenos.ds.op.base.parent/pom.xml
-<!-- TODO how to use relative path here... -->
+Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ?
 
 why gogo: CommandNotFoundException: Command not found: gosh
 org.apache.felix.gogo.runtime.CommandNotFoundException: Command not found: gosh 

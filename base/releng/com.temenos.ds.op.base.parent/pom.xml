@@ -20,10 +20,8 @@
 		<repository>
 			<id>base.repomirror</id>
 			<layout>p2</layout>
-			<!--  no good: <url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.b3repository/build/final/</url>  -->
-			<!-- <url>file:///home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.repomirror/target/repository</url> -->
 			<!-- TODO how to use relative path here... -->
-			<url>file:///home/vorburger/dev/git/com.temenos.ds.op/mirror</url>
+			<url>file://${basedir}/../../../mirror</url>
 		</repository>
 <!-- 		
 		<repository>
