@@ -26,38 +26,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.ecf.core.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.core.ssl.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.ssl.source.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.common.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.ecore.source"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.equinox.compendium.sdk"
          version="0.0.0"/>
 
@@ -118,27 +86,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.sdk.examples.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.compendium.sdk"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.core.sdk"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.equinox.p2.rcp.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.rcp.feature.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.sdk"
          version="0.0.0"/>
 
    <includes
@@ -146,23 +94,28 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.serverside.sdk"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.weaving.sdk"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.sdk"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.sdk.examples"
+         id="org.eclipse.m2e.sdk.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.sdk.examples.source"
+         id="org.sonatype.tycho.m2e.feature"
+         version="0.0.0"/>
+
+	<!-- <includes
+         id="org.eclipse.egit.mylyn"
+         version="0.0.0"/> -->
+	<includes
+         id="org.eclipse.egit.source"
+         version="0.0.0"/>
+	<includes
+         id="org.eclipse.jgit.pgm.source"
+         version="0.0.0"/>
+	<includes
+         id="org.eclipse.jgit.source"
          version="0.0.0"/>
 
    <includes

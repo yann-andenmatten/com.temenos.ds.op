@@ -30,30 +30,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.ecf.core.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.core.ssl.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.ssl.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.emf.common"
          version="0.0.0"/>
 
@@ -114,10 +90,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.osgi.compatibility.plugins.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.pde"
          version="0.0.0"/>
 
@@ -137,8 +109,25 @@
          id="org.eclipse.rcp.configuration"
          version="0.0.0"/>
 
-   <includes
-         id="org.eclipse.sdk"
+	<includes
+         id="org.eclipse.m2e.feature"
          version="0.0.0"/>
+
+<!--<includes
+         id="org.eclipse.m2e.logback"
+         version="0.0.0"/>-->
+
+  	<includes
+         id="org.eclipse.jgit"
+         version="0.0.0"/>
+	<includes
+         id="org.eclipse.jgit.java7"
+         version="0.0.0"/>
+ 	<includes
+         id="org.eclipse.egit"
+         version="0.0.0"/>
+<!--<includes
+         id="org.eclipse.jgit.http.apache"
+         version="0.0.0"/>-->       
 
 </feature>

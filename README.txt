@@ -30,11 +30,9 @@ Build the offline aggregate mirror of all needed p2 repos by opening the *.b3agg
 Various Tips & Tricks
 =====================
 
-For each *.repository, remove the url= and version="0.0.0" instead of version="1.0.0.qualifier" in side <feature ...>.
+In each *.feature, remove the url= and use version="0.0.0" instead of version="1.0.0.qualifier" inside <feature ...>.
+Remember that in *.feature sometimes (but not always) you have to append .feature in <includes id="...feature"> - does NOT match JAR filename.
 
-For each *.product, in Dependencies, remove the Version of each Feature.
-
-When problems with depending on (external bleeding edge) features,
-it's better to have own own feature.xml depend on the external one (Included Feature).
+In each *.product, in Dependencies, remove the Version of each Feature.
 
 In category.xml <feature> remove fixed version numbers in url and version and use .qualifier.

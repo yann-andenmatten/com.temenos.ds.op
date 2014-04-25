@@ -1,7 +1,7 @@
 add to com.temenos.ds.op.sdk.product:
-	m2e
-	egit
-	xtext
+	re-enable org.eclipse.jgit.http.apache & org.eclipse.m2e.logback req. Orbit?
+	Xtext
+	Xcore
 
 UI Testing.. Xored?
 basic product integration test.. startup etc. e.g. logically broken (but buildable) *product & *feature should be detected
@@ -34,7 +34,9 @@ Produce normal Maven artifacts.. for Xtext Standalone Builder - https://wiki.ecl
 
 Better default preferences AND DOCUMENT THEM in readme
 	Plugin Development > Include all plug-ins from target in Java search
-
+	EGit Git sign-off
+	M2E Do not download indexes
+	
 Generate ALL pom.xml, from directory names, via simple Java tool, later packaged as Maven plug-in? A la https://wiki.eclipse.org/Tycho/Reference_Card#Generating_POM_files
 Maven rules  enforcement, how? Only modules etc. 
 
