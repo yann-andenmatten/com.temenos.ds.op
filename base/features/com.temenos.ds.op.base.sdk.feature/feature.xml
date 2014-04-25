@@ -122,14 +122,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.sdk.tests"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.test"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.equinox.compendium.sdk"
          version="0.0.0"/>
 
