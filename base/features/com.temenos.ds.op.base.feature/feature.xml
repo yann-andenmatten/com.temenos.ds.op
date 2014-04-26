@@ -18,10 +18,6 @@
    </license>
 
    <includes
-         id="org.eclipse.core.runtime.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.cvs"
          version="0.0.0"/>
 

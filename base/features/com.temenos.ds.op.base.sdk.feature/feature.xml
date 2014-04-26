@@ -26,10 +26,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.compendium.sdk"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.equinox.core.sdk"
          version="0.0.0"/>
 
@@ -46,19 +42,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.p2.sdk"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.equinox.p2.user.ui.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.serverside.sdk"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.weaving.sdk"
          version="0.0.0"/>
 
    <includes
@@ -71,10 +55,6 @@
 
    <includes
          id="org.eclipse.pde.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform"
          version="0.0.0"/>
 
    <includes
@@ -105,14 +85,11 @@
          id="org.sonatype.tycho.m2e.feature"
          version="0.0.0"/>
 
-	<!-- <includes
-         id="org.eclipse.egit.mylyn"
-         version="0.0.0"/> -->
 	<includes
-         id="org.eclipse.egit.source"
+         id="org.eclipse.egit.mylyn"
          version="0.0.0"/>
 	<includes
-         id="org.eclipse.jgit.pgm.source"
+         id="org.eclipse.egit.source"
          version="0.0.0"/>
 	<includes
          id="org.eclipse.jgit.source"
