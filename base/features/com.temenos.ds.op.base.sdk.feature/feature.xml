@@ -94,6 +94,9 @@
       <import feature="org.eclipse.mylyn.cvs"/>
       <import feature="org.eclipse.mylyn.git"/>
       <import feature="org.eclipse.mylyn.hudson"/>
+      
+      <import feature="org.eclipse.mylyn.github.feature" />
+      
 	<includes
          id="org.eclipse.egit.mylyn"
          version="0.0.0"/>

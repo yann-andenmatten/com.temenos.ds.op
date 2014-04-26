@@ -33,6 +33,8 @@ Better default preferences AND DOCUMENT THEM in readme
 	EGit Git sign-off
 	M2E Do not download indexes
 	
+Mylyn JIRA connector
+
 Generate ALL pom.xml, from directory names, via simple Java tool, later packaged as Maven plug-in? A la https://wiki.eclipse.org/Tycho/Reference_Card#Generating_POM_files
 Maven rules  enforcement, how? Only modules etc. 
 
@@ -60,5 +62,3 @@ more useful lil' plugin (doc)
 
 Non-SDK com.temenos.ds.op.base.repository & product
 Correctly split Xtext runtime components vs. sdk features
-
-Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ? Nothing on G.
