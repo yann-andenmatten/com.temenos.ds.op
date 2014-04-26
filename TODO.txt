@@ -1,7 +1,3 @@
-add to com.temenos.ds.op.sdk.product:
-	re-enable org.eclipse.jgit.http.apache & org.eclipse.m2e.logback req. Orbit?
-	Xtext
-	Xcore
 
 UI Testing.. Xored?
 basic product integration test.. startup etc. e.g. logically broken (but buildable) *product & *feature should be detected
@@ -59,11 +55,10 @@ http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/tree/releng/org.eclips
 
 learn more from http://git.eclipse.org/c/epp/org.eclipse.epp.packages.git/
 
-clean-up features.. no CVS, possible?
-
 more useful lil' plugin (doc)
 	JUnit loop
 
 Non-SDK com.temenos.ds.op.base.repository & product
+Correctly split Xtext runtime components vs. sdk features
 
 Waz [The bundles specified in the product definition are ignored; verify the value of the 'type' or 'useFeatures' attribute.] ? Nothing on G.

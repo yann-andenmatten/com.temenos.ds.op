@@ -93,6 +93,8 @@
          id="org.eclipse.rcp.configuration"
          version="0.0.0"/>
 
+    <import feature="org.eclipse.wst.xml_ui.feature"/>
+
 	<includes
          id="org.eclipse.m2e.feature"
          version="0.0.0"/>
@@ -113,5 +115,7 @@
    <includes
          id="org.eclipse.jgit.http.apache"
          version="0.0.0"/>   
+         
+	<import feature="org.eclipse.egit.import"/>
 
 </feature>
