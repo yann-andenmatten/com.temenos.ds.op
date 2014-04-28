@@ -40,7 +40,9 @@
 		<repository>
 			<id>takari-m2e-latest</id>
 			<layout>p2</layout>
-			<url>http://repository.takari.io:8081/nexus/content/sites/m2e.extras/m2e/1.5.0/N/LATEST/</url>
+			<url>http://download.eclipse.org/technology/m2e/milestones/1.5/</url>
+			<!-- https://bugs.eclipse.org/bugs/show_bug.cgi?id=433653
+			<url>http://repository.takari.io:8081/nexus/content/sites/m2e.extras/m2e/1.5.0/N/LATEST/</url> -->
 		</repository>
 		<repository>
 			<id>central-m2eclipse-tycho</id>
