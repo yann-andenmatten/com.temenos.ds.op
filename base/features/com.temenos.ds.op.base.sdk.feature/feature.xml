@@ -114,6 +114,10 @@
     <import feature="org.eclipse.emf.ecore.xcore.sdk"/>
     
     <import feature="org.eclipse.recommenders.rcp.feature"/>
+
+	<includes
+		id="org.eclipse.emf.compare.source"
+		version="2.1.0"/>	
     
    <includes
          id="com.temenos.ds.op.base.feature"

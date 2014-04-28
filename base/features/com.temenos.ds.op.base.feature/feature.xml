@@ -93,7 +93,9 @@
          id="org.eclipse.rcp.configuration"
          version="0.0.0"/>
 
-    <import feature="org.eclipse.wst.xml_ui.feature"/>
+    <includes 
+    	id="org.eclipse.wst.xml_ui.feature"
+    	version="0.0.0"/>
 
 	<includes
          id="org.eclipse.m2e.feature"
@@ -116,6 +118,8 @@
          id="org.eclipse.jgit.http.apache"
          version="0.0.0"/>   
          
-	<import feature="org.eclipse.egit.import"/>
+	<includes
+		id="org.eclipse.emf.compare"
+		version="2.1.0"/>	
 
 </feature>

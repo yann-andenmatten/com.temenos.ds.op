@@ -26,6 +26,16 @@ We like option Resolve Workspace Artifacts.
 
 Build the offline aggregate mirror of all needed p2 repos by opening the *.b3aggr, and right-click Build Aggregation.
 
+How to add stuff
+================
+
+1. add new remote p2 repo to ds.open/base/releng/com.temenos.ds.op.base.parent/pom.xml
+2. if you happen to have ;) an in-house Nexus proxy, don't forget to have them same added there
+3. add req. features to ds.open/base/features/com.temenos.ds.op.base.feature/feature.xml (if it's needed for end-users)
+   and respective source feature (or both, if it's for Dev only) to ds.open/base/features/com.temenos.ds.op.base.sdk.feature/feature.xml 
+   (Note that, contrary to e.g. *.target file, you don't need precise version here.)
+4. rebuild quickly locally & "eat your own dog food"
+
 
 Various Tips & Tricks
 =====================

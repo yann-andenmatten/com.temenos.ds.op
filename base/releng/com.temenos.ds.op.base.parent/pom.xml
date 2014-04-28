@@ -54,6 +54,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/egit/updates-nightly</url>
 		</repository>
+		<repository>
+			<id>eclipse-emf-compare</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emf/compare/updates/releases/</url>
+		</repository>
 
 			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
 	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
