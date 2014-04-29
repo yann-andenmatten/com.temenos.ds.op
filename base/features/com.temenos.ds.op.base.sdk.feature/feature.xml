@@ -1,91 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.temenos.ds.op.base.sdk.feature"
-      label="Feature"
+      label="Temenos Open Design Studio Base SDK IDE Feature"
       version="1.0.0.qualifier"
       provider-name="TEMENOS">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="https://github.com/vorburger/com.temenos.ds.op">
+      TEMENOS Design Studio NG Open Source Base SDK
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
+   <license url="license.html">
+      %license
    </license>
 
-   <includes
-         id="org.eclipse.cvs.source"
-         version="0.0.0"/>
+   <requires>
+      <import feature="org.eclipse.pde"/>
+      <import feature="org.eclipse.sdk"/>
 
-   <includes
-         id="org.eclipse.e4.rcp.source"
-         version="0.0.0"/>
+      <import feature="org.eclipse.platform.source"/>
+      <import feature="org.eclipse.cvs.source"/>
+      <import feature="org.eclipse.jdt.source"/>
+      <import feature="org.eclipse.pde.source"/>
+      <import feature="org.eclipse.rcp.source"/>
 
-   <includes
-         id="org.eclipse.equinox.core.sdk"
-         version="0.0.0"/>
+      <import feature="org.eclipse.egit.source"/>
+      <import feature="org.eclipse.jgit.source"/>
+      <import feature="org.eclipse.m2e.sdk.feature"/>
+      <import feature="org.sonatype.tycho.m2e.feature"/>
 
-   <includes
-         id="org.eclipse.equinox.p2.core.feature.source"
-         version="0.0.0"/>
+      <import feature="org.eclipse.xtend.sdk"/>
+      <import feature="org.eclipse.xtext.sdk"/>
+      <import feature="org.eclipse.emf.sdk"/>
+      <import feature="org.eclipse.emf.ecore.xcore.sdk"/>
 
-   <includes
-         id="org.eclipse.equinox.p2.extras.feature.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.rcp.feature.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.user.ui.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.help.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.jdt.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.pde.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rcp.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.rcp.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.sdk"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.sdk"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.m2e.sdk.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.sonatype.tycho.m2e.feature"
-         version="0.0.0"/>
-
-	<import feature="org.eclipse.mylyn.ide_feature"/>
+      <import feature="org.eclipse.mylyn.ide_feature"/>
       <import feature="org.eclipse.mylyn.java_feature"/>
       <import feature="org.eclipse.mylyn.bugzilla_feature"/>
       <import feature="org.eclipse.mylyn.context_feature"/>
@@ -96,31 +44,12 @@
       <import feature="org.eclipse.mylyn.hudson"/>
       
       <import feature="org.eclipse.mylyn.github.feature" />
+      <import feature="org.eclipse.egit.mylyn" />
+
+      <import feature="org.eclipse.recommenders.rcp.feature"/>
       
-	<includes
-         id="org.eclipse.egit.mylyn"
-         version="0.0.0"/>
-
-	<includes
-         id="org.eclipse.egit.source"
-         version="0.0.0"/>
-	<includes
-         id="org.eclipse.jgit.source"
-         version="0.0.0"/>
-
- 	<import feature="org.eclipse.xtend.sdk"/>
-    <import feature="org.eclipse.xtext.sdk"/>
-    <import feature="org.eclipse.emf.sdk"/>
-    <import feature="org.eclipse.emf.ecore.xcore.sdk"/>
-    
-    <import feature="org.eclipse.recommenders.rcp.feature"/>
-
-	<includes
-		id="org.eclipse.emf.compare.source"
-		version="2.1.0"/>	
-    
-   <includes
-         id="com.temenos.ds.op.base.feature"
-         version="0.0.0"/>
-
+      <import feature="org.eclipse.emf.compare"/>
+      <import feature="org.eclipse.emf.compare.source"/>
+   </requires>
+      
 </feature>

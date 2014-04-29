@@ -1,4 +1,8 @@
 
+mv *.repository to *.product - like done in EPP
+
+*.product <vm><windows include="true"> .. supported by Tycho? Taken from where?
+
 UI Testing.. Xored?
 basic product integration test.. startup etc. e.g. logically broken (but buildable) *product & *feature should be detected
 
@@ -27,6 +31,10 @@ http://eclipse.org/tycho/sitedocs/tycho-compiler-plugin/compile-mojo.html
 http://eclipse.org/tycho/sitedocs/tycho-packaging-plugin/plugin-info.html ?
 
 Produce normal Maven artifacts.. for Xtext Standalone Builder - https://wiki.eclipse.org/Tycho/How_Tos/Dependency_on_pom-first_artifacts
+
+optimize.. we don't probably don't actually need it to do this for us?
+	tycho-p2-repository-plugin:0.20.0:archive-repository (default-archive-repository) @ com.temenos.ds.op.base.sdk.repository ---
+	[INFO] Building zip: /home/vorburger/dev/DS/NG/ds.open/base/releng/com.temenos.ds.op.base.sdk.repository/target/com.temenos.ds.op.base.sdk.repository-1.0.0-SNAPSHOT.zip
 
 Better default preferences AND DOCUMENT THEM in readme
 	Plugin Development > Include all plug-ins from target in Java search

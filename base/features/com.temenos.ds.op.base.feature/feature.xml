@@ -1,125 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.temenos.ds.op.base.feature"
-      label="Feature"
+      label="Temenos Open Design Studio Base IDE Feature"
       version="1.0.0.qualifier"
       provider-name="TEMENOS">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="https://github.com/vorburger/com.temenos.ds.op">
+      TEMENOS Design Studio NG Open Source Base
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
+   <license url="license.html">
+      %license
    </license>
 
-   <includes
-         id="org.eclipse.cvs"
-         version="0.0.0"/>
+   <requires>
+      <import feature="com.temenos.ds.op.base.feature"/>
+      
+      <import feature="org.eclipse.platform"/>
+      <import feature="org.eclipse.cvs"/>
+      <import feature="org.eclipse.equinox.p2.user.ui"/>
+      <import feature="org.eclipse.help"/>
+      <import feature="org.eclipse.jdt"/>
+      <import feature="org.eclipse.rcp"/>
 
-   <includes
-         id="org.eclipse.e4.rcp"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.common"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.ecore"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.core.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.core.feature.source"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.discovery.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.extras.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.rcp.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.p2.user.ui"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.server.core"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.server.jetty"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.equinox.server.p2"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.help"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.jdt"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.pde"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.platform"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rcp"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rcp.configuration"
-         version="0.0.0"/>
-
-    <includes 
-    	id="org.eclipse.wst.xml_ui.feature"
-    	version="0.0.0"/>
-
-	<includes
-         id="org.eclipse.m2e.feature"
-         version="0.0.0"/>
-
-    <includes
-         id="org.eclipse.m2e.logback.feature"
-         version="0.0.0"/>
-
-  	<includes
-         id="org.eclipse.jgit"
-         version="0.0.0"/>
-	<includes
-         id="org.eclipse.jgit.java7"
-         version="0.0.0"/>
- 	<includes
-         id="org.eclipse.egit"
-         version="0.0.0"/>
-   <includes
-         id="org.eclipse.jgit.http.apache"
-         version="0.0.0"/>   
-         
-	<includes
-		id="org.eclipse.emf.compare"
-		version="2.1.0"/>	
+      <import feature="org.eclipse.egit"/>
+      <import feature="org.eclipse.jgit.java7"/>
+      <import feature="org.eclipse.jgit.http.apache"/>
+      <import feature="org.eclipse.m2e.feature"/>
+      <import feature="org.eclipse.m2e.logback.feature"/>
+      <import feature="org.eclipse.wst.xml_ui.feature"/>
+      
+      <import feature="org.eclipse.equinox.server.jetty"/>
+   </requires>
 
 </feature>
