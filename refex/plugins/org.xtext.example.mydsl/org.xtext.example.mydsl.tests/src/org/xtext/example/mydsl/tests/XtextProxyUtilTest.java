@@ -18,7 +18,10 @@ import com.temenos.ds.op.xtext.util.XtextProxyUtil;
 
 /**
  * Integration Test illustrating the use of XtextProxyUtil.
- *  
+ * 
+ * This test is here instead of in com.temenos.ds.op.xtext.tests, because it
+ * difficult to unit test XtextProxyUtil without a real example Xtext language.
+ * 
  * @author Michael Vorburger
  */
 @RunWith(XtextRunner.class)
@@ -36,10 +39,11 @@ public class XtextProxyUtilTest {
 		
 		assertEquals(worldGreeting, m.getGreetings().get(1).getGreetingRef());
 		
-		Greeting proxyRef = m.getGreetings().get(2).getGreetingRef();
+		final Greeting greeting2 = m.getGreetings().get(2);
+		Greeting proxyRef = greeting2.getGreetingRef();
 		assertTrue(proxyRef.eIsProxy());
-		String text = proxyUtil.getProxyCrossRefAsString(proxyRef);
-		assertEquals("some.thing.non.existant", text);
+		String text = proxyUtil.getProxyCrossRefAsString(greeting2, proxyRef);
+		assertEquals("nada", text);
 	}
 
 }

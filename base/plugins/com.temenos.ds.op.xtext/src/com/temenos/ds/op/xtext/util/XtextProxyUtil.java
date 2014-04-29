@@ -14,6 +14,8 @@ import com.google.common.base.Preconditions;
 /**
  * Utility for Xtext related to EMF Proxies.
  * 
+ * Tested by XtextProxyUtilTest in refex org.xtext.example.mydsl.tests.
+ * 
  * @author Michael Vorburger
  */
 public class XtextProxyUtil {
@@ -31,19 +33,21 @@ public class XtextProxyUtil {
 	 * Cross Ref Link text (String) to... do something with it
 	 * (i.e. imagine better error messages?).
 	 * 
-	 * @param eObject the EObject, must be eIsProxy() - check before calling
+	 * @param context is the EObject that you got (via getXYZ()) the proxy from
+	 * @param proxy the EObject, must be eIsProxy() - check before calling
 	 * @return String textual representation of cross reference
 	 * 
 	 * @throws IllegalArgumentException if !eIsProxy(), or not part of a Xtext resource, etc.
 	 */
-	public String getProxyCrossRefAsString(EObject eObject) {
-		Preconditions.checkArgument(eObject.eIsProxy(), "EObject !eIsProxy() : %s", eObject.toString());
-		URI proxyURI = ((InternalEObject) eObject).eProxyURI();
-		Preconditions.checkNotNull(proxyURI, "EObject eIsProxy() BUT URI is null : %s", eObject.toString());
+	public String getProxyCrossRefAsString(EObject context, EObject proxy) {
+		Preconditions.checkArgument(proxy.eIsProxy(), "EObject !eIsProxy() : %s", proxy.toString());
+		URI proxyURI = ((InternalEObject) proxy).eProxyURI();
+		Preconditions.checkNotNull(proxyURI, "EObject eIsProxy() BUT URI is null : %s", proxy.toString());
 		String fragment = proxyURI.fragment();
-		Preconditions.checkArgument(encoder.isCrossLinkFragment(eObject.eResource(), fragment),
+		Preconditions.checkArgument(encoder.isCrossLinkFragment(context.eResource(), fragment),
 				"URI is not Xtext Cross Link Fragment: %s", proxyURI);
-		INode node = encoder.getNode(eObject, fragment);
+		INode node = encoder.getNode(context, fragment);
+		Preconditions.checkNotNull(node, "EObject context is not 'near' enough (it has no Node model)");
 		String linkText = linkingHelper.getCrossRefNodeAsString(node, true);
 		return linkText;
 	}
