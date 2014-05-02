@@ -1,0 +1,3 @@
+[submodule "SUBS/eson"]
+	path = SUBS/eson
+	url = https://github.com/vorburger/efactory.git
