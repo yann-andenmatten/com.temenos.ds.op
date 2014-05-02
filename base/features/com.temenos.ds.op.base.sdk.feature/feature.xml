@@ -14,6 +14,8 @@
    </license>
 
    <requires>
+      <import feature="com.temenos.ds.op.base.feature"/>
+      
       <import feature="org.eclipse.pde"/>
       <import feature="org.eclipse.sdk"/>
 

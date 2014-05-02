@@ -14,8 +14,6 @@
    </license>
 
    <requires>
-      <import feature="com.temenos.ds.op.base.feature"/>
-      
       <import feature="org.eclipse.platform"/>
       <import feature="org.eclipse.cvs"/>
       <import feature="org.eclipse.equinox.p2.user.ui"/>
