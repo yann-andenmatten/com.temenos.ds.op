@@ -12,7 +12,7 @@ How to build
 1. Initially, just once: rm -rf mirror/; mvn -f mirror-pom.xml prepare-package
 2. Then just mvn -o clean package! ;-)
 3. rm -rf ../com.temenos.ds.op.sdk.ide/ ; cp -R base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/ ../com.temenos.ds.op.sdk.ide/
-   $ env UBUNTU_MENUPROXY=0 SWT_GTK3=0 base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/eclipse -consoleLog
+   $ env UBUNTU_MENUPROXY=0 SWT_GTK3=0 ../com.temenos.ds.op.sdk.ide/eclipse -consoleLog
    OR less base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/configuration/*.log
 
 The idea is to develop using the DS.open SDK Package which has everything needed (at the right version),
