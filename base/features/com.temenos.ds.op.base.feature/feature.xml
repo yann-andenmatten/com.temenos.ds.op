@@ -29,6 +29,8 @@
       <import feature="org.eclipse.wst.xml_ui.feature"/>
       
       <import feature="org.eclipse.equinox.server.jetty"/>
+      
+      <import feature="org.eclipse.emf.eson.ui.feature" />
    </requires>
 
 </feature>
