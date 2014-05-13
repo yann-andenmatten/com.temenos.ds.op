@@ -52,6 +52,9 @@
       
       <import feature="org.eclipse.emf.compare"/>
       <import feature="org.eclipse.emf.compare.source"/>
+      
+       <import feature="org.eclipse.emf.eson.tests.feature" />
+
    </requires>
       
 </feature>
