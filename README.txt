@@ -47,3 +47,6 @@ Remember that in *.feature sometimes (but not always) you have to append .featur
 In each *.product, in Dependencies, remove the Version of each Feature.
 
 In category.xml <feature> remove fixed version numbers in url and version and use .qualifier.
+
+Why we don't use *.target platform definition files, and instead just specify the required <repository><layout>p2</layout> p2 repos in pom.xml.  One of the advantages of this approach is that it allows Maven settings.xml <mirror><id> to work.  Another advantate is that you stop wasting time configuring *.target.. ;-) (even though https://github.com/mbarbero/fr.obeo.releng.targetplatform can offset that pain).  The disadvantage of that is that there is no *.target to load into a completely fresh PDE. We accept this limitation, as we expect developers will use only our SDK product built with this ("eat your own dogfood").
+
