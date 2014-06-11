@@ -17,6 +17,8 @@ How to build
    $ env UBUNTU_MENUPROXY=0 SWT_GTK3=0 ../com.temenos.ds.op.sdk.ide/eclipse -consoleLog
    OR less base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/configuration/*.log
 
+4. git pull; git submodule update
+
 The idea is to develop using the DS.open SDK Package which has everything needed (at the right version),
 and not your own Eclipse download.  That product is built by this project, look around and learn how.
 
@@ -29,8 +31,40 @@ We like option Resolve Workspace Artifacts.
 
 Build the offline aggregate mirror of all needed p2 repos by opening the *.b3aggr, and right-click Build Aggregation.
 
-How to add stuff
-================
+How to make a change in a sobmodule
+===================================
+
+~/dev/ngMUI/com.temenos.ds.op$ git submodule status 
+3d9bb0e2c60924b75436e6909d3a7fac76a46fc3 SUBS/eson (xtext-v2.4.1_beforeDowngrading-149-g3d9bb0e)
+
+~/dev/ngMUI/com.temenos.ds.op$ cd SUBS/eson
+~/dev/ngMUI/com.temenos.ds.op/SUBS/eson$ git branch
+* (detached from 3d9bb0e)
+  master
+~/dev/ngMUI/com.temenos.ds.op/SUBS/eson$ git branch -a --contains 3d9bb0e
+* (detached from 3d9bb0e)
+  remotes/origin/eclipse.org
+~/dev/ngMUI/com.temenos.ds.op/SUBS/eson$ git checkout eclipse.org 
+Branch eclipse.org set up to track remote branch eclipse.org from origin.
+Switched to a new branch 'eclipse.org'
+
+git commit -am "... some change made in submodule... "
+git push
+cd ..
+git diff SUBS/eson (WITHOUT TRAILING SLASH!)
+git add SUBS/eson
+git commit -am "move submodule to latest tip of eclipse.org branch"
+git push
+
+DO NOT use a forward slash after the submodule name in git add
+
+Latest Git could track branch instead of commit (but commit is better as more stable)
+
+@see http://www.vogella.com/tutorials/Git/article.html#submodules
+
+
+How to add features
+===================
 
 1. add new remote p2 repo to ds.open/base/releng/com.temenos.ds.op.base.parent/pom.xml
 2. if you happen to have ;) an in-house Nexus proxy, don't forget to have them same added there
