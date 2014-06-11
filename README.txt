@@ -9,6 +9,8 @@ base/ has build scripts etc. and raw low level infrastructure code shared betwee
 How to build
 ============
 
+0. git clone --recursive
+   or, if already cloned: git submodule update --init --recursive; git submodule status
 1. Initially, just once: rm -rf mirror/; mvn -f mirror-pom.xml prepare-package
 2. Then just mvn -o clean package! ;-)
 3. rm -rf ../com.temenos.ds.op.sdk.ide/ ; cp -R base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/ ../com.temenos.ds.op.sdk.ide/
