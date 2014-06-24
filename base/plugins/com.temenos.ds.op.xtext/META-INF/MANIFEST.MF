@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext
+Bundle-Name: Xtext Utils
 Bundle-SymbolicName: com.temenos.ds.op.xtext
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: TEMENOS
+Bundle-Vendor: Michael Vorburger, for TEMENOS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.xtext,
  org.slf4j.api;bundle-version="1.7.2"
