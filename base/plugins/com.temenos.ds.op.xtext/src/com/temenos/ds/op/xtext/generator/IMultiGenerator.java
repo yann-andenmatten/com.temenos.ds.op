@@ -8,7 +8,7 @@
  * Contributors:
  *     Michael Vorburger - initial API and implementation
  ******************************************************************************/
-package com.temenos.ds.op.xtext;
+package com.temenos.ds.op.xtext.generator;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.generator.IFileSystemAccess;
@@ -20,7 +20,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
  * 
  * <p>TODO Document how to register these!
  *
- * <p> * Implementations can have stuff @Inject'd, most notably typically a
+ * <p>Implementations can have stuff @Inject'd, most notably typically a
  * {@link ResourceLoader}, which makes it easy to get actual models objects from
  * the input URI; use it only if your Generator is going to actually consume the
  * URI. Note that the correct language specific dependencies will be @Inject'ed.
@@ -41,6 +41,8 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
  */
 public interface IMultiGenerator {
 
+	// TODO Add support for requesting org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext.needRebuild()
+	
 	/**
 	 * Generate stuff.
 	 * 

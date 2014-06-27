@@ -8,7 +8,7 @@
  * Contributors:
  *     Michael Vorburger - initial API and implementation
  ******************************************************************************/
-package com.temenos.ds.op.xtext;
+package com.temenos.ds.op.xtext.generator;
 
 /**
  * Load a resource (or directly an EMF EObject).  
