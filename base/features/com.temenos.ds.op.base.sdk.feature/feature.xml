@@ -55,6 +55,8 @@
       
        <import feature="org.eclipse.emf.eson.tests.feature" />
 
+		<import feature="org.eclipse.pde.api.tools.ee.feature" />
+
    </requires>
       
 </feature>
