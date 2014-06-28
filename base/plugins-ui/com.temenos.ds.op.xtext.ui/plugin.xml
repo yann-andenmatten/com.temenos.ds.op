@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="com.temenos.ds.op.xtext.generator" name="Xtext Multi Generator" schema="schema/com.temenos.ds.op.xtext.generator.exsd"/>
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="com.temenos.ds.op.xtext.ui.MultiGeneratorXtextBuilderParticipant">
+            class="com.temenos.ds.op.xtext.generator.ui.MultiGeneratorXtextBuilderParticipant">
       </participant>
    </extension>
 

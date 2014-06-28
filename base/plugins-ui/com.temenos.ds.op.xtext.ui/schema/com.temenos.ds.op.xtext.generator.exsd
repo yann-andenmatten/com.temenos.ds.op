@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.temenos.ds.op.xtext.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.temenos.ds.op.xtext.ui" id="multigenerator" name="Xtext Multi Generator"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to define participants for the MUI/NG IDE Xtext IMultiGenerator. All registered participants will be called subsequently in no particular order.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+         	<element ref="multigenerator"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="multigenerator">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.temenos.ds.op.xtext.generator.IMultiGenerator"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         10.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         Following is an example of how a builder participant can be registered: 
+&lt;p&gt;
+&lt;pre&gt;
+&lt;extension point=&quot;com.temenos.ds.op.xtext.generator&quot;&gt;
+    &lt;participant
+          class=&quot;com.temenos.ds.op.example.generator.MyMultiGenerator&quot;/&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Multi Generators do not need to use Google Guice to instantiate, as they will anyway be instantianted to be injected with language specific configuration.
+
+&lt;p&gt;Multi Generators are restricted to only run on certain file extensions. As they are only passed URIs, they decide when to actually load models.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         The value of the class attribute must represent an 
+implementor of &lt;samp&gt;com.temenos.ds.op.xtext.generator.IMultiGenerator&lt;/samp&gt;.
+      </documentation>
+   </annotation>
+
+
+
+</schema>
