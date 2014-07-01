@@ -10,19 +10,16 @@
  ******************************************************************************/
 package com.temenos.ds.op.xtext.generator.ui;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.builder.BuilderParticipant;
 import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
-import org.eclipse.xtext.builder.IXtextBuilderParticipant;
-import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
-import org.eclipse.xtext.resource.IResourceDescription;
-import org.eclipse.xtext.resource.IResourceServiceProvider;
+import org.eclipse.xtext.generator.OutputConfiguration;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
-import org.slf4j.Logger;
 
 
 /**
@@ -53,15 +50,6 @@ public class MultiGeneratorXtextBuilderParticipant extends BuilderParticipant /*
 		}
 	}
 
-	//	@Override
-//	public void build(IBuildContext context, IProgressMonitor monitor) throws CoreException {
-//		for (IResourceDescription.Delta delta : context.getDeltas()) {
-//			Resource resource = context.getResourceSet().getResource(delta.getUri(), true);
-//			// TODO generate
-//			// TODO if (monitor != null)
-//		}
-//	}
-
 	@Override
 	protected boolean isEnabled(IBuildContext context) {
 		return true;
@@ -70,6 +58,11 @@ public class MultiGeneratorXtextBuilderParticipant extends BuilderParticipant /*
 	@Override
 	protected List<Delta> getRelevantDeltas(IBuildContext context) {
 		return context.getDeltas();
+	}
+
+	@Override
+	protected Map<String, OutputConfiguration> getOutputConfigurations(IBuildContext context) {
+		return new HashMap<String, OutputConfiguration>(); // TODO ...
 	}
 	
 }

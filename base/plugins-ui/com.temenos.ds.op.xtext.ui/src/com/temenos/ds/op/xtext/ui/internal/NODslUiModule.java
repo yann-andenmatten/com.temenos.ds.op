@@ -13,9 +13,6 @@ package com.temenos.ds.op.xtext.ui.internal;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.DefaultUiModule;
 
-import com.google.inject.Binder;
-import com.google.inject.Module;
-
 public class NODslUiModule extends DefaultUiModule {
 
 	public NODslUiModule(AbstractUIPlugin plugin) {

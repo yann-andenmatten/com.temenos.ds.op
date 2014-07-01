@@ -10,9 +10,6 @@
  ******************************************************************************/
 package com.temenos.ds.op.xtext.ui.internal;
 
-import java.util.Collections;
-import java.util.Map;
-
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
@@ -20,7 +17,6 @@ import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -55,20 +51,19 @@ public class NODslActivator extends AbstractUIPlugin {
 	}
 	
 	public Injector getInjector() {
-		synchronized (injector) {
 			if (injector == null) {
-				injector = createInjector();
-			}
-			return injector;
+			injector = createInjector();
 		}
+		return injector;
 	}
 	
 	protected Injector createInjector() {
 		try {
-			Module runtimeModule = getRuntimeModule();
+//			Module runtimeModule = getRuntimeModule();
 			Module sharedStateModule = getSharedStateModule();
-			Module uiModule = getUiModule();
-			Module mergedModule = Modules2.mixin(runtimeModule, sharedStateModule, uiModule);
+//			Module uiModule = getUiModule();
+			Module noopModule = getNoopModule();
+			Module mergedModule = Modules2.mixin(/*runtimeModule, */ sharedStateModule, /* uiModule, */ noopModule);
 			return Guice.createInjector(mergedModule);
 		} catch (Exception e) {
 			logger.error("Failed to create injector: " + e.getMessage(), e);
@@ -87,5 +82,9 @@ public class NODslActivator extends AbstractUIPlugin {
 	protected Module getSharedStateModule() {
 		return new SharedStateModule();
 	}
-	
+
+	protected Module getNoopModule() {
+		return new NoDslNoopModule();
+	}
+
 }
