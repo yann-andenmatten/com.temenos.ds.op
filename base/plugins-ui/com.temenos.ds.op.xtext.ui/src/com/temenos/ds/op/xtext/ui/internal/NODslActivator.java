@@ -63,7 +63,8 @@ public class NODslActivator extends AbstractUIPlugin {
 			Module sharedStateModule = getSharedStateModule();
 //			Module uiModule = getUiModule();
 			Module noopModule = getNoopModule();
-			Module mergedModule = Modules2.mixin(/*runtimeModule, */ sharedStateModule, /* uiModule, */ noopModule);
+			Module eclipseModule = getEclipseModule();
+			Module mergedModule = Modules2.mixin(/*runtimeModule, */ sharedStateModule, /* uiModule, */ eclipseModule, noopModule);
 			return Guice.createInjector(mergedModule);
 		} catch (Exception e) {
 			logger.error("Failed to create injector: " + e.getMessage(), e);
@@ -71,20 +72,24 @@ public class NODslActivator extends AbstractUIPlugin {
 		}
 	}
 
-	protected Module getRuntimeModule() {
-		return new NODslRuntimeModule();
-	}
-	
-	protected Module getUiModule() {
-		return new NODslUiModule(this);
-	}
+//	protected Module getRuntimeModule() {
+//		return new NODslRuntimeModule();
+//	}
+//	
+//	protected Module getUiModule() {
+//		return new NODslUiModule(this);
+//	}
 	
 	protected Module getSharedStateModule() {
 		return new SharedStateModule();
 	}
 
+	protected Module getEclipseModule() {
+		return new NODslEclipseModule();
+	}
+
 	protected Module getNoopModule() {
-		return new NoDslNoopModule();
+		return new NODslNoopModule();
 	}
 
 }

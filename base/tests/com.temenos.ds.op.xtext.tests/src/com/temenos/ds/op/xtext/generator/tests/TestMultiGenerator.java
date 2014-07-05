@@ -10,21 +10,23 @@
  ******************************************************************************/
 package com.temenos.ds.op.xtext.generator.tests;
 
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
-
-import com.temenos.ds.op.xtext.generator.IMultiGenerator;
+import org.eclipse.xtext.generator.IGenerator;
 
 /**
  * Example IMultiGenerator, for Tests.
  * 
  * @author Michael Vorburger
  */
-public class TestMultiGenerator implements IMultiGenerator {
+public class TestMultiGenerator implements IGenerator /* IMultiGenerator */ {
 
+	// TODO Test @Inject - make sure it's language specific
+	
 	@Override
-	public void doGenerate(URI input, IFileSystemAccess fsa) throws Exception {
-		fsa.generateFile("test.txt", "hello, world");
+	public void doGenerate(Resource input, IFileSystemAccess fsa) {
+		// public void doGenerate(URI input, IFileSystemAccess fsa) throws Exception {
+		fsa.generateFile("test.txt", "hello, world: " + input.getURI().toString());
 	}
 
 }

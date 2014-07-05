@@ -8,24 +8,23 @@
  * Contributors:
  *     Michael Vorburger - initial API and implementation
  ******************************************************************************/
-package com.temenos.ds.op.xtext.generator.tests;
+package com.temenos.ds.op.xtext.ui.internal;
 
-import static org.junit.Assert.*;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 
-import org.junit.Test;
+import com.google.inject.AbstractModule;
 
 /**
- * Test for MultiGeneratorsXtextBuilderParticipant.
+ * Guice Module binding Eclipse IExtensionRegistry etc.
  * 
  * @author Michael Vorburger
  */
-public class MultiGeneratorXtextBuilderParticipantTest {
+public class NODslEclipseModule extends AbstractModule {
 
-	@Test
-	public void testMultiGeneratorXtextBuilderParticipant() {
-		// NO new TestMultiGenerator() here, that's not the point of this test
-		// What it should test instead is a new IProject etc. etc.
-		fail("Not yet implemented"); // TODO FIXME
+	@Override
+	protected void configure() {
+		bind(IExtensionRegistry.class).toInstance(Platform.getExtensionRegistry());
 	}
 
 }

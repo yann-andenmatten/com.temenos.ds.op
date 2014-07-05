@@ -12,6 +12,7 @@ package com.temenos.ds.op.xtext.ui.internal;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.xtext.builder.EclipseOutputConfigurationProvider;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.IGenerator.NullGenerator;
 import org.eclipse.xtext.parser.IEncodingProvider;
@@ -22,14 +23,14 @@ import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreAccess;
 import org.eclipse.xtext.validation.IResourceValidator;
 
 /**
- * Needed because MultiGeneratorXtextBuilderParticipant currently extends
+ * Needed because MultiGeneratorsXtextBuilderParticipant currently extends
  * BuilderParticipant for convenience, as for MultiGenerator there is no single
  * language specific IGenerator, IPreferenceStoreAccess. Will be removed later
  * if BuilderParticipant is refactored upstream.
  * 
  * @author Michael Vorburger
  */
-public class NoDslNoopModule extends AbstractGenericModule {
+public class NODslNoopModule extends AbstractGenericModule {
 
 	public Class<? extends IGenerator> bindIGenerator() {
 		return NullGenerator.class;
@@ -37,6 +38,10 @@ public class NoDslNoopModule extends AbstractGenericModule {
 	
 	public Class<? extends IResourceServiceProvider> bindIResourceServiceProvider() {
 		return NullResourceServiceProvider.class;
+	}
+	
+	public Class<? extends EclipseOutputConfigurationProvider> bindEclipseOutputConfigurationProvider() {
+		return SimpleDefaultEclipseOutputConfigurationProvider.class; 
 	}
 	
 	public Class<? extends IPreferenceStoreAccess> bindIPreferenceStoreAccess() {

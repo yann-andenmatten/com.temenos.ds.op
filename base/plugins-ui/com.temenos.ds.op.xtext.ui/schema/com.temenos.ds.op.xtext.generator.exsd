@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":com.temenos.ds.op.xtext.generator.IMultiGenerator"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.xtext.generator.IGenerator"/>
                </appinfo>
             </annotation>
          </attribute>
@@ -85,9 +85,9 @@
 &lt;/extension&gt;
 &lt;/pre&gt;
 
-&lt;p&gt;Multi Generators do not need to use Google Guice to instantiate, as they will anyway be instantianted to be injected with language specific configuration.
+&lt;p&gt;Multi Generators do not have to use Google Guice to instantiate, as they will anyway be instantianted to be injected with language specific configuration.
 
-&lt;p&gt;Multi Generators are restricted to only run on certain file extensions. As they are only passed URIs, they decide when to actually load models.
+&lt;p&gt;Multi Generators are not restricted to only run on certain file extensions. They decide when to generate by looking at the resource's content (or URI file extension).
       </documentation>
    </annotation>
 
@@ -97,7 +97,7 @@
       </appinfo>
       <documentation>
          The value of the class attribute must represent an 
-implementor of &lt;samp&gt;com.temenos.ds.op.xtext.generator.IMultiGenerator&lt;/samp&gt;.
+implementor of &lt;samp&gt;org.eclipse.xtext.generator.IGenerator&lt;/samp&gt;.
       </documentation>
    </annotation>
 
