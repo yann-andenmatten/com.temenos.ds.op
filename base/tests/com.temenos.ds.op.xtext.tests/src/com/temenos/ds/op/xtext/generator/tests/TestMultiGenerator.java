@@ -19,14 +19,13 @@ import org.eclipse.xtext.generator.IGenerator;
  * 
  * @author Michael Vorburger
  */
-public class TestMultiGenerator implements IGenerator /* IMultiGenerator */ {
+public class TestMultiGenerator extends IGeneratorThrowsWithThrowsException /* implements IGenerator | IMultiGenerator */ {
 
 	// TODO Test @Inject - make sure it's language specific
 	
 	@Override
-	public void doGenerate(Resource input, IFileSystemAccess fsa) {
-		// public void doGenerate(URI input, IFileSystemAccess fsa) throws Exception {
-		fsa.generateFile("test.txt", "hello, world: " + input.getURI().toString());
+	public void doGenerateWithThrowsException(Resource input, IFileSystemAccess fsa) throws Exception {
+		fsa.generateFile(input.getURI().lastSegment(), "hello, world: " + input.getURI().toString());
 	}
 
 }

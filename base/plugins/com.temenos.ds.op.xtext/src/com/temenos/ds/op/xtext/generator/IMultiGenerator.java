@@ -41,8 +41,9 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
  */
 public interface IMultiGenerator {
 	// TODO This isn't currently used.. further investigate below, then remove this
-	
-	// TODO Use Resource instead of URI arg.. then it's identical to IGenerator.. so just get rid of this useless interface? Post patches against upstream core to add throws Exception
+	// TODO Use Resource instead of URI arg.. then it's identical to IGenerator.. so just get rid of this useless interface?
+
+	// TODO Proposed patches against upstream core to add throws Exception.. @see IGeneratorThrowsWithThrowsException.java
 	
 	// TODO Add support for requesting org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext.needRebuild()
 	

@@ -28,4 +28,6 @@ public class MultiGeneratorXtextBuilderParticipantTest {
 		fail("Not yet implemented"); // TODO FIXME
 	}
 
+	// TODO @Test IGeneratorThrowsWithThrowsException
+	
 }

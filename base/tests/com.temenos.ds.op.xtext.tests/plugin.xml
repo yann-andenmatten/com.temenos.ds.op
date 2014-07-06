@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="com.temenos.ds.op.xtext.generator">
+         point="com.temenos.ds.op.xtext.ui.multigenerator">
       <multigenerator
             class="com.temenos.ds.op.xtext.generator.tests.TestMultiGenerator">
       </multigenerator>

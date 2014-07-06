@@ -12,19 +12,18 @@ package com.temenos.ds.op.xtext.generator.ui;
 
 import static com.google.common.collect.Maps.uniqueIndex;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.emf.ecore.plugin.RegistryReader;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.builder.BuilderParticipant;
 import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
-import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
-import org.eclipse.xtext.builder.impl.RegistryBuilderParticipant;
-import org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.BuilderParticipantReader;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.OutputConfiguration;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
@@ -33,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
@@ -44,11 +44,10 @@ import com.temenos.ds.op.xtext.ui.internal.NODslActivator;
  * 
  * @author Michael Vorburger
  */
-@SuppressWarnings("restriction")
 public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /* implements IXtextBuilderParticipant */ {
 	// TODO MAYBE later send a proposal to Xtext core to split up BuilderParticipant so it's more suitable to be extended here
 	
-	private final static Logger logger = LoggerFactory.getLogger(MultiGeneratorsXtextBuilderParticipant.class);
+	// private final static Logger logger = LoggerFactory.getLogger(MultiGeneratorsXtextBuilderParticipant.class);
 	
 	// This, incl. volatile, inspired by (copy/pasted from) org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.participants
 	@Inject
@@ -66,21 +65,15 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 			try {
 				registerCurrentSourceFolder(context, delta, fileSystemAccess);
 
-				// TODO remove.. just for quick tests
-				System.out.println(delta.getUri());
-				fileSystemAccess.generateFile("test.txt", "hello, world: " + delta.getUri().toString());
-
 				// TODO inject generator with lang specific configuration.. is to return only class, not instance, and re-llokup from lang specific injector obtained from extension going to have any perf. drawback? measure it.
-//				for (IGenerator generator : getGenerators()) {
-//					generator.doGenerate(resource, fileSystemAccess);
-//				}
+				for (IGenerator generator : getGenerators()) {
+					generator.doGenerate(resource, fileSystemAccess);
+				}
 
 			} catch (RuntimeException e) {
 				if (e.getCause() instanceof CoreException) {
-					e = (RuntimeException) e.getCause();
+					throw (CoreException) e.getCause();
 				}
-				logger.error("RuntimeException during doGenerate() for URI: " + delta.getUri(), e);
-				// TODO wouldn't it be better if this, and the parent method where I stole this from, would throw a new wrapping CoreException ?
 				throw e;
 			}
 		}
@@ -105,9 +98,7 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 				NODslActivator activator = NODslActivator.getInstance();
 				if (activator != null) {
 					String pluginID = activator.getBundle().getSymbolicName();
-					String extensionPointID = "multigenerator";
-					RegistryBuilderParticipant uselessOuterRBP = null;
-					BuilderParticipantReader reader = uselessOuterRBP.new BuilderParticipantReader(extensionRegistry, pluginID, extensionPointID);
+					GeneratorReader<IGenerator> reader = new GeneratorReader<IGenerator>(extensionRegistry, pluginID, "multigenerator", classToGenerator);
 					reader.readRegistry();
 				}
 			}
@@ -117,30 +108,79 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 		return result;
 	}
 
+	// This inner class is inspired by org.eclipse.xtext.builder.impl.RegistryBuilderParticipant.BuilderParticipantReader - 
+	// TODO If later sending a proposal to Xtext core to split up BuilderParticipant so it's more suitable to be extended here, refactor to make this re-usable across instead copy/paste 
+	// It's intentionally static to make sure it doesn't access members of the outer class, and will thus be easier to factor out later 
+	public static class GeneratorReader<T> extends RegistryReader {
+		private final static Logger logger = LoggerFactory.getLogger(MultiGeneratorsXtextBuilderParticipant.GeneratorReader.class);
+
+		private static final String ATT_CLASS = "class";
+		
+		protected final String extensionPointID;
+		protected final Map<String, T> classNameToInstance;
+
+		public GeneratorReader(IExtensionRegistry pluginRegistry, String pluginID, String extensionPointID, Map<String, T> classNameToInstance) {
+			super(pluginRegistry, pluginID, extensionPointID);
+			this.extensionPointID = extensionPointID;
+			this.classNameToInstance = classNameToInstance;
+		}
+		
+		@Override
+		protected boolean readElement(IConfigurationElement element, boolean add) {
+			if (element.getName().equals(extensionPointID)) {
+				String className = element.getAttribute(ATT_CLASS);
+				if (className == null) {
+					logMissingAttribute(element, ATT_CLASS);
+				} else if (add) {
+					if (classNameToInstance.containsKey(className)) {
+						logger.warn("The builder participant '" + className + "' was registered twice."); //$NON-NLS-1$ //$NON-NLS-2$
+					}
+					Optional<T> instance = get(element);
+					if (!instance.isPresent()) {
+						return false;
+					}
+					classNameToInstance.put(className, instance.get());
+					// ? participants = null;
+					return true;
+				} else {
+					classNameToInstance.remove(className);
+					// ? participants = null;
+					return true;
+				}
+			}
+			return false;
+		}
+
+		@SuppressWarnings("unchecked")
+		protected Optional<T> get(IConfigurationElement element) {
+			try {
+				return Optional.of((T) element.createExecutableExtension(ATT_CLASS));
+			} catch (CoreException e) {
+				logError(element, "CoreException from createExecutableExtension(): " + e.getMessage() /* TODO , e */);
+			} catch (NoClassDefFoundError e) {
+				logError(element, e.getMessage());
+			}
+			return Optional.absent();
+		}
+
+		@Override
+		protected void logError(IConfigurationElement element, String text) {
+			IExtension extension = element.getDeclaringExtension();
+			logger.error("Plugin " + extension.getContributor().getName() + ", extension " + extension.getExtensionPointUniqueIdentifier()); //$NON-NLS-1$ //$NON-NLS-2$
+			logger.error(text);
+		}
+	}
+	
 	@Override
 	protected boolean isEnabled(IBuildContext context) {
+		// TODO better later read this from.. an IGenerator specific Preference
 		return true;
 	}
 	
 	@Override
 	protected List<Delta> getRelevantDeltas(IBuildContext context) {
+		// TODO better for future compat. to just make sure we @Inject an resourceServiceProvider where canHandle => true always instead of this short term solution:
 		return context.getDeltas();
 	}
 
-	@Override
-	protected Map<String, OutputConfiguration> getOutputConfigurations(IBuildContext context) {
-		// NOT // outputConfigurationProvider.getOutputConfigurations(context.getBuiltProject());
-		Set<OutputConfiguration> configurations = new OutputConfigurationProvider().getOutputConfigurations();
-		// copy/paste from super()
-		return uniqueIndex(configurations, new Function<OutputConfiguration, String>() {
-			public String apply(OutputConfiguration from) {
-				return from.getName();
-			}
-		});
-	}
-
-//	protected Map<String, OutputConfiguration> getOutputConfigurations(IBuildContext context) {
-//		return new HashMap<String, OutputConfiguration>(); // TODO ...
-//	}
-	
 }
