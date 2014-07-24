@@ -67,9 +67,10 @@ How to add features
 ===================
 
 1. add new remote p2 repo to ds.open/base/releng/com.temenos.ds.op.base.parent/pom.xml
-2. if you happen to have ;) an in-house Nexus proxy, don't forget to have them same added there
+2. if you happen to have ;) an in-house Nexus proxy, don't forget to have the same added there
 3. add req. features to ds.open/base/features/com.temenos.ds.op.base.feature/feature.xml (if it's needed for end-users)
-   and respective source feature (or both, if it's for Dev only) to ds.open/base/features/com.temenos.ds.op.base.sdk.feature/feature.xml 
+   and respective source feature (or both, if it's for Dev only) to ds.open/base/features/com.temenos.ds.op.base.sdk.feature/feature.xml
+   Note that it's possible to add both <import feature=".."/> and <import plugin="..."/>
    (Note that, contrary to e.g. *.target file, you don't need precise version here.)
 4. rebuild quickly locally & "eat your own dog food"
 

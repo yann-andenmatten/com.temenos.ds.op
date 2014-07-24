@@ -15,6 +15,7 @@
 -->	
 		<module>features/com.temenos.ds.op.base.feature</module>
 		<module>features/com.temenos.ds.op.base.sdk.feature</module>
+		<module>tests/com.temenos.ds.op.base.tests</module>
 		<module>releng/com.temenos.ds.op.base.sdk.repository</module>
 	</modules>
 

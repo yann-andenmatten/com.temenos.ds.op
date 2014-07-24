@@ -15,26 +15,21 @@
 
    <requires>
       <import feature="com.temenos.ds.op.base.feature"/>
-      
       <import feature="org.eclipse.pde"/>
       <import feature="org.eclipse.sdk"/>
-
       <import feature="org.eclipse.platform.source"/>
       <import feature="org.eclipse.cvs.source"/>
       <import feature="org.eclipse.jdt.source"/>
       <import feature="org.eclipse.pde.source"/>
       <import feature="org.eclipse.rcp.source"/>
-
       <import feature="org.eclipse.egit.source"/>
       <import feature="org.eclipse.jgit.source"/>
       <import feature="org.eclipse.m2e.sdk.feature"/>
       <import feature="org.sonatype.tycho.m2e.feature"/>
-
       <import feature="org.eclipse.xtend.sdk"/>
       <import feature="org.eclipse.xtext.sdk"/>
       <import feature="org.eclipse.emf.sdk"/>
       <import feature="org.eclipse.emf.ecore.xcore.sdk"/>
-
       <import feature="org.eclipse.mylyn.ide_feature"/>
       <import feature="org.eclipse.mylyn.java_feature"/>
       <import feature="org.eclipse.mylyn.bugzilla_feature"/>
@@ -44,19 +39,16 @@
       <import feature="org.eclipse.mylyn.cvs"/>
       <import feature="org.eclipse.mylyn.git"/>
       <import feature="org.eclipse.mylyn.hudson"/>
-      
-      <import feature="org.eclipse.mylyn.github.feature" />
-      <import feature="org.eclipse.egit.mylyn" />
-
+      <import feature="org.eclipse.mylyn.github.feature"/>
+      <import feature="org.eclipse.egit.mylyn"/>
       <import feature="org.eclipse.recommenders.rcp.feature"/>
-      
       <import feature="org.eclipse.emf.compare"/>
       <import feature="org.eclipse.emf.compare.source"/>
-      
-       <import feature="org.eclipse.emf.eson.tests.feature" />
-
-		<import feature="org.eclipse.pde.api.tools.ee.feature" />
-
+      <import feature="org.eclipse.emf.eson.tests.feature"/>
+      <import feature="org.eclipse.pde.api.tools.ee.feature"/>
+      <import plugin="com.google.guava.source"/>
+      <import plugin="org.mockito"/>
+      <import plugin="org.mockito.source"/>
    </requires>
-      
+
 </feature>
