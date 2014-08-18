@@ -4,7 +4,7 @@ Bundle-Name: Tests
 Bundle-SymbolicName: com.temenos.ds.op.xtext.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TEMENOS
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit,
  org.eclipse.xtext.junit4,
  org.apache.log4j;bundle-version="1.2.15",
