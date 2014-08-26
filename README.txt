@@ -17,7 +17,7 @@ How to build
    $ env UBUNTU_MENUPROXY=0 SWT_GTK3=0 ../com.temenos.ds.op.sdk.ide/eclipse -consoleLog
    OR less base/releng/com.temenos.ds.op.base.sdk.repository/target/products/com.temenos.ds.op.sdk.ide.product/linux/gtk/x86_64/configuration/*.log
 
-4. git pull; git submodule update
+4. git pull; git submodule update (--remote)
 
 The idea is to develop using the DS.open SDK Package which has everything needed (at the right version),
 and not your own Eclipse download.  That product is built by this project, look around and learn how.
@@ -58,7 +58,20 @@ git push
 
 DO NOT use a forward slash after the submodule name in git add
 
-Latest Git could track branch instead of commit (but commit is better as more stable)
+
+How to add a new sobmodule
+--------------------------
+
+cd SUBS
+git submodule add (-b master) [URL to Git repo]
+git submodule init 
+
+Recent Git (>=1.8.2) can track branch instead of commit with -b... (but commit has advantage better as more stable)
+To fetch the latest from the remote master for this submodule you can then do:
+
+git submodule update --remote
+
+Note that this creates entries in /.gitmodules... this has to be adapted e.g. if you move SUBS directory (incl. branch info if -b).
 
 @see http://www.vogella.com/tutorials/Git/article.html#submodules
 
