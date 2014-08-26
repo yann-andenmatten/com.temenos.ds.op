@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <!-- interactiveMode
+   | This will determine whether maven prompts you when it needs input. If set to false,
+   | maven will use a sensible default value, perhaps based on some other setting, for
+   | the parameter in question.
+   |
+   | Default: true
+  -->
+  <interactiveMode>false</interactiveMode>
+
+  <!-- offline
+   | Determines whether maven should attempt to connect to the network when executing a build.
+   | This will have an effect on artifact downloads, artifact deployment, and others.
+   |
+   | Default: false
+  <offline>false</offline>
+  -->
+
+  <pluginGroups>
+    <pluginGroup>com.odcgroup.maven.plugin</pluginGroup>
+  </pluginGroups>
+
+  <mirrors>
+   <mirror>
+      <id>Dummy</id>
+      <name>Dummy repository to prevent external access</name>
+      <url>http://maven.oams.com/content/groups/all/</url>
+      <mirrorOf>*</mirrorOf>
+   </mirror>
+   <mirror>
+      <id>p2.eclipse.luna.mirror</id>	
+      <mirrorOf>p2.eclipse.luna</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases\org.eclipse-luna-201406250900</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.eclipse.emf.mirror</id>	
+      <mirrorOf>p2.eclipse.emf</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse.emf-2.9.0-eson</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.eclipse.xtext.mirror</id>	
+      <mirrorOf>p2.eclipse.xtext</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse.xtext-2.5.3-eson</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.eclipse.emf.compare.mirror</id>	
+      <mirrorOf>p2.eclipse.emf.compare</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse.emf.compare-3.0</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.eclipse.orbit-R20140525021250.mirror</id>	
+      <mirrorOf>p2.eclipse.orbit-R20140525021250</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse.orbit-R20140525021250</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+    </mirror>
+   <mirror>
+      <id>p2.eclipse-egit-nightly.mirror</id>	
+      <mirrorOf>p2.eclipse-egit-nightly</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/snapshots/org.eclipse.egit-updates-nightly</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.takari-m2e-latest.mirror</id>	
+      <mirrorOf>p2.takari-m2e-latest</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse.m2e-1.5</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror>
+   <mirror>
+      <id>p2.central-m2eclipse-tycho.mirror</id>	
+      <mirrorOf>p2.central-m2eclipse-tycho</mirrorOf>
+      <url>${ds.p2cache.base}/repositories/releases/org.sonatype.tycho.m2e-0.7.0</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+   </mirror> 
+   <mirror>
+      <id>p2.default</id>                
+      <mirrorOf>external:*</mirrorOf>
+      <url>oups-DS-SDK-should-access-online-repo-from-inhouse-build</url>
+      <layout>p2</layout>
+      <mirrorOfLayouts>p2</mirrorOfLayouts>
+    </mirror>
+  </mirrors>
+
+
+  	<profiles>
+		<profile>
+			<id>DefaultRepository</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<repositories>
+				<repository>
+					<id>central</id>
+					<name>Central repository (redefinition)</name>
+					<releases><enabled>true</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+					<url>http://repo1.maven.org/maven2</url>
+				</repository>
+<repository>
+  <id>central snapshots</id>
+  <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<name>Central repository (redefinition)</name>
+					<releases><enabled>true</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+					<url>http://repo1.maven.org/maven2</url>
+				</pluginRepository>
+  <pluginRepository>
+      <id>central snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+  </pluginRepository>
+			</pluginRepositories>
+
+
+		</profile>
+  	</profiles>
+</settings>
