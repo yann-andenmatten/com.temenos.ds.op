@@ -1,7 +1,4 @@
 
-guava sources
-xtext.tests + sources
-
 startup error messages?
 
 keyboard shortcut bindings broken?
