@@ -10,17 +10,31 @@
  ******************************************************************************/
 package com.temenos.ds.op.xtext.ui.internal;
 
+import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtext.ui.DefaultUiModule;
+import org.eclipse.xtext.service.AbstractGenericModule;
 
-public class NODslUiModule extends DefaultUiModule {
+import com.google.inject.Binder;
+
+public class NODslUiModule extends AbstractGenericModule {
+
+	private final AbstractUIPlugin plugin;
 
 	public NODslUiModule(AbstractUIPlugin plugin) {
-		super(plugin);
+		super();
+		this.plugin = plugin;
+	}
+
+	@Override
+	public void configure(Binder binder) {
+		super.configure(binder);
+		binder.bind(AbstractUIPlugin.class).toInstance(plugin);
+		binder.bind(IDialogSettings.class).toInstance(plugin.getDialogSettings());
 	}
 
 	public com.google.inject.Provider<org.eclipse.xtext.resource.containers.IAllContainersState> provideIAllContainersState() {
 		return org.eclipse.xtext.ui.shared.Access.getJavaProjectsState();
 	}
 
+	
 }

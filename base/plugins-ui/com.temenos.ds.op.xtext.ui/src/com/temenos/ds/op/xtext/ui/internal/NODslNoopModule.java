@@ -12,6 +12,7 @@ package com.temenos.ds.op.xtext.ui.internal;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.builder.EclipseOutputConfigurationProvider;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.IGenerator.NullGenerator;
@@ -20,7 +21,11 @@ import org.eclipse.xtext.resource.IResourceDescription.Manager;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.eclipse.xtext.service.AbstractGenericModule;
 import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreAccess;
+import org.eclipse.xtext.ui.editor.preferences.PreferenceStoreAccessImpl;
 import org.eclipse.xtext.validation.IResourceValidator;
+
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
 
 /**
  * Needed because MultiGeneratorsXtextBuilderParticipant currently extends
@@ -41,13 +46,21 @@ public class NODslNoopModule extends AbstractGenericModule {
 	}
 	
 	public Class<? extends EclipseOutputConfigurationProvider> bindEclipseOutputConfigurationProvider() {
-		return SimpleDefaultEclipseOutputConfigurationProvider.class; 
+		return EclipseOutputConfigurationProvider.class; 
 	}
 	
 	public Class<? extends IPreferenceStoreAccess> bindIPreferenceStoreAccess() {
-		return NullPreferenceStoreAccess.class;
+		return PreferenceStoreAccessImpl.class;
 	}
 
+	public void configureLanguageName(Binder binder) {
+		// PreferenceStoreAccessImpl's setLanguageNameAsQualifier needs a languageName,
+		// so we have to bind SOMETHING, anything, here... it's not actually used though,
+		// because we programmatically call setLanguageNameAsQualifier() again anyway again later.
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance(NODslNoopModule.class.getName());
+	}
+
+	
 	public static class NullResourceServiceProvider implements IResourceServiceProvider {
 
 		@Override
