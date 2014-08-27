@@ -34,7 +34,7 @@
    <mirror>
       <id>p2.eclipse.luna.mirror</id>	
       <mirrorOf>p2.eclipse.luna</mirrorOf>
-      <url>${ds.p2cache.base}/repositories/releases\org.eclipse-luna-201406250900</url>
+      <url>${ds.p2cache.base}/repositories/releases/org.eclipse-luna-201406250900</url>
       <layout>p2</layout>
       <mirrorOfLayouts>p2</mirrorOfLayouts>
    </mirror>
