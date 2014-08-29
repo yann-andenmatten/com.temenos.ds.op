@@ -79,6 +79,11 @@
 			<layout>p2</layout>
 			<url>http://xtext-utils.eclipselabs.org.codespot.com/git.distribution/snapshots/unittesting-0.9.x/</url>
 		</repository>
+		<repository>
+			<id>eclipse-team-svn-2.0</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/subversive/2.0/update-site/</url>
+		</repository>
 			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
 	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
 		<url>http://download.vogella.com/luna/e4tools</url> </repository> -->
