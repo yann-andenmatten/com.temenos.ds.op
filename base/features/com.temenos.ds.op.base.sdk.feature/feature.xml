@@ -50,6 +50,7 @@
       <import plugin="com.google.inject.source"/>
       <import plugin="org.mockito"/>
       <import plugin="org.mockito.source"/>
+	  <import plugin="edu.umd.cs.findbugs.plugin.eclipse"/>
    </requires>
 
 </feature>
