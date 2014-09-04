@@ -64,6 +64,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/</url>
 		</repository>
+		<repository>
+			<id>findbugs</id>
+			<layout>p2</layout>
+			<url>http://download.jboss.org/jbosstools/updates/requirements/findbugs/3.0.0.20140706-2cfb468/</url>
+		</repository>
 			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
 	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
 		<url>http://download.vogella.com/luna/e4tools</url> </repository> -->
