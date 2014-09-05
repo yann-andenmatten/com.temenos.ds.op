@@ -10,13 +10,19 @@
  ******************************************************************************/
 package com.temenos.ds.op.xtext.generator.ui;
 
+import static com.google.common.collect.Maps.newHashMap;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.plugin.RegistryReader;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.builder.BuilderParticipant;
@@ -32,6 +38,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.temenos.ds.op.xtext.ui.internal.NODslActivator;
@@ -52,11 +59,26 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 	private IExtensionRegistry extensionRegistry;
 	private volatile ImmutableList<IGenerator> generators;
 	private Map<String, IGenerator> classToGenerator;
+	private IBuildContext context;
+
 	
 	@Inject PreferenceStoreAccessImpl preferenceStoreAccess;
 	
 	public PreferenceStoreAccessImpl getPreferenceStoreAccess() {
 		return preferenceStoreAccess;
+	}
+
+	@Override
+	public void build(IBuildContext context, IProgressMonitor monitor) throws CoreException {
+		if (this.context != null)
+			// TODO This should be a CoreException
+			throw new IllegalStateException("context != null; multi-threaded invocation??");
+		this.context = context;
+		try {
+			super.build(context, monitor);
+		} finally {
+			this.context = null;
+		}
 	}
 
 	@Override
@@ -91,6 +113,34 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 		}
 	}
 
+	protected String getGeneratorID(IGenerator generator) {
+		return generator.getClass().getName(); // TODO use new Id instead of class name..
+	}
+
+	@Override
+	protected Map<OutputConfiguration, Iterable<IMarker>> getGeneratorMarkers(
+			IProject builtProject,Collection<OutputConfiguration> outputConfigurations)
+			throws CoreException {
+
+		// TODO: Check the impact of modifying this method on other tasks
+		Map<OutputConfiguration, Iterable<IMarker>> generatorMarkers = newHashMap();
+
+		for (IGenerator generator : getGenerators()) {
+			String generatorId = getGeneratorID(generator);
+			final Map<String, OutputConfiguration> modifiedConfigs = getOutputConfigurations(context, generatorId);
+			if (generatorMarkers.isEmpty()) {
+				generatorMarkers = super.getGeneratorMarkers(builtProject, modifiedConfigs.values());
+			} else {
+				Map<OutputConfiguration, Iterable<IMarker>> markers = super.getGeneratorMarkers(builtProject, modifiedConfigs.values());
+				for (Object key : markers.keySet()) {
+					Iterable<IMarker> mainMarkers = generatorMarkers.get(key);
+					Iterable<IMarker> newMarkers = markers.get(key);
+					generatorMarkers.put((OutputConfiguration) key,	Iterables.concat(mainMarkers, newMarkers));
+				}
+			}
+		}
+		return generatorMarkers;
+	}
 	protected Map<String, OutputConfiguration> getOutputConfigurations(IBuildContext context, String generatorId) {
 		IPreferenceStoreAccess preferenceStoreAccess = getOutputConfigurationProvider().getPreferenceStoreAccess();
 		PreferenceStoreAccessImpl preferenceStoreAccessImpl = (PreferenceStoreAccessImpl) preferenceStoreAccess;

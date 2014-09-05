@@ -98,6 +98,11 @@ public class MultiGeneratorXtextBuilderParticipantTest extends AbstractBuilderTe
 		waitForAutoBuild();
 		generatedFile = project.getProject().getFile("./other-gen/Bar.mydsl");
 		assertTrue(generatedFile.exists());
+		
+		//Test file deletion
+		file.delete(true, monitor());
+		waitForAutoBuild();
+		assertTrue(!generatedFile.exists());
 	}
 
 	protected void createTwoReferencedProjects() throws CoreException {
