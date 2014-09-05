@@ -59,8 +59,7 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 	private IExtensionRegistry extensionRegistry;
 	private volatile ImmutableList<IGenerator> generators;
 	private Map<String, IGenerator> classToGenerator;
-	private IBuildContext context;
-
+	private ThreadLocal<IBuildContext> buildContextLocal = new ThreadLocal<IBuildContext>();
 	
 	@Inject PreferenceStoreAccessImpl preferenceStoreAccess;
 	
@@ -70,14 +69,11 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 
 	@Override
 	public void build(IBuildContext context, IProgressMonitor monitor) throws CoreException {
-		if (this.context != null)
-			// TODO This should be a CoreException
-			throw new IllegalStateException("context != null; multi-threaded invocation??");
-		this.context = context;
 		try {
+			buildContextLocal.set(context);
 			super.build(context, monitor);
 		} finally {
-			this.context = null;
+			buildContextLocal.remove();
 		}
 	}
 
@@ -127,7 +123,7 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 
 		for (IGenerator generator : getGenerators()) {
 			String generatorId = getGeneratorID(generator);
-			final Map<String, OutputConfiguration> modifiedConfigs = getOutputConfigurations(context, generatorId);
+			final Map<String, OutputConfiguration> modifiedConfigs = getOutputConfigurations(buildContextLocal.get(), generatorId);
 			if (generatorMarkers.isEmpty()) {
 				generatorMarkers = super.getGeneratorMarkers(builtProject, modifiedConfigs.values());
 			} else {
