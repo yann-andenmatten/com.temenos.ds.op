@@ -69,6 +69,11 @@
 			<layout>p2</layout>
 			<url>http://download.jboss.org/jbosstools/updates/requirements/findbugs/3.0.0.20140706-2cfb468/</url>
 		</repository>
+		<repository>
+			<id>net.sf.eclipsecs.checkstyle</id>
+			<layout>p2</layout>
+			<url>http://eclipse-cs.sf.net/update/</url>
+		</repository>
 		 <repository>
 			<id>p2.eclipse.xtext.utils</id>
 			<layout>p2</layout>
