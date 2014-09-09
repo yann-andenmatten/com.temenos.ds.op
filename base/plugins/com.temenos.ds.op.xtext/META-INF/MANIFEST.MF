@@ -4,7 +4,7 @@ Bundle-Name: Xtext Utils
 Bundle-SymbolicName: com.temenos.ds.op.xtext
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Michael Vorburger, for TEMENOS
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.xtext.generator;bundle-version="2.6.0";visibility:=reexport,
  org.eclipse.xtext,
  org.slf4j.api;bundle-version="1.7.2"
