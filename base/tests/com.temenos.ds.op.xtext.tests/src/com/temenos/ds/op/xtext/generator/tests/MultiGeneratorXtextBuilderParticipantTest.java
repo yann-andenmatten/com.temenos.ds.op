@@ -23,6 +23,7 @@ import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -48,11 +49,15 @@ import com.temenos.ds.op.xtext.ui.internal.NODslActivator;
  * Test for MultiGeneratorsXtextBuilderParticipant.
  * 
  * @author Michael Vorburger
+ * @author Umesh
  */
 @SuppressWarnings("restriction")
 public class MultiGeneratorXtextBuilderParticipantTest extends AbstractBuilderTest{
 
+	// NOTE: You need the org.xtext.example.mydsl (and its *.ui) plugins open for this test
 
+	private MultiGeneratorsXtextBuilderParticipant participant;
+	private PreferenceStoreAccessImpl preferenceStoreAccess;
 
 	@Override
 	public void setUp() throws Exception {
@@ -62,49 +67,54 @@ public class MultiGeneratorXtextBuilderParticipantTest extends AbstractBuilderTe
 		preferenceStoreAccess = participant.getPreferenceStoreAccess();
 	}
 
-	private MultiGeneratorsXtextBuilderParticipant participant;
-	private PreferenceStoreAccessImpl preferenceStoreAccess;
-
 	@Override
 	public void tearDown() throws Exception {
 		super.tearDown();
 		participant = null;
 	}
 
-	@SuppressWarnings("restriction")
 	@Test
 	public void testMultiGeneratorXtextBuilderParticipant() throws Exception {
-		IJavaProject project = createJavaProject("testGenerateIntoProjectOutputDirectory");
-		addNature(project.getProject(), XtextProjectHelper.NATURE_ID);
-		preferenceStoreAccess.setLanguageNameAsQualifier("com.temenos.ds.op.xtext.generator.tests.TestMultiGenerator");
-		preferenceStoreAccess.getWritablePreferenceStore(project.getJavaProject()).setValue(getDefaultOutputDirectoryKey(),
-				"./test-gen");
+		IProject project = createXtextJavaProject("testGenerateIntoProjectOutputDirectory").getProject();
 		IFolder folder = project.getProject().getFolder("src");
+
+		setDefaultOutputFolderDirectory(project, "com.temenos.ds.op.xtext.generator.tests.TestMultiGenerator", "./test-gen");
+
 		IFile file = folder.getFile("Foo" + F_EXT);
 		file.create(new StringInputStream("Hello safasdt!"), true, monitor());
-		project.getProject().build(IncrementalProjectBuilder.FULL_BUILD, monitor());
+		project.build(IncrementalProjectBuilder.FULL_BUILD, monitor());
 		waitForAutoBuild();
-		IFile generatedFile = project.getProject().getFile("./test-gen/Foo.mydsl");
+		IFile generatedFile = project.getFile("./test-gen/Foo.mydsl");
 		assertTrue(generatedFile.exists());
 
-		preferenceStoreAccess.setLanguageNameAsQualifier("com.temenos.ds.op.xtext.generator.tests.TestMultiGenerator");
-		IPreferenceStore preferences = preferenceStoreAccess.getWritablePreferenceStore(project.getProject());
-		preferences.setValue(getDefaultOutputDirectoryKey(), "other-gen");
-		
+		setDefaultOutputFolderDirectory(project, "com.temenos.ds.op.xtext.generator.tests.TestMultiGenerator", "other-gen");
+
 		file = folder.getFile("Bar" + F_EXT);
 		InputStream source = new StringInputStream("Hello bar!");
 		file.create(source, true, monitor());
-		project.getProject().build(IncrementalProjectBuilder.FULL_BUILD, monitor());
+		project.build(IncrementalProjectBuilder.FULL_BUILD, monitor());
 		waitForAutoBuild();
-		generatedFile = project.getProject().getFile("./other-gen/Bar.mydsl");
+		generatedFile = project.getFile("./other-gen/Bar.mydsl");
 		assertTrue(generatedFile.exists());
 		
-		//Test file deletion
+		// Test file deletion
 		file.delete(true, monitor());
 		waitForAutoBuild();
 		assertTrue(!generatedFile.exists());
 	}
 
+	protected IJavaProject createXtextJavaProject(String name) throws CoreException {
+		IJavaProject project = createJavaProject(name);
+		addNature(project.getProject(), XtextProjectHelper.NATURE_ID);
+		return project;
+	}
+
+	protected void setDefaultOutputFolderDirectory(IProject project, String generatorID, String directoryName) {
+		preferenceStoreAccess.setLanguageNameAsQualifier(generatorID);
+		IPreferenceStore preferences = preferenceStoreAccess.getWritablePreferenceStore(project);
+		preferences.setValue(getDefaultOutputDirectoryKey(), directoryName);
+	}
+	
 	protected void createTwoReferencedProjects() throws CoreException {
 		IJavaProject firstProject = createJavaProjectWithRootSrc("first");
 		IJavaProject secondProject = createJavaProjectWithRootSrc("second");
