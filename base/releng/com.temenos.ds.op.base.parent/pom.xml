@@ -84,6 +84,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/technology/subversive/2.0/update-site/</url>
 		</repository>
+		<repository>
+			<id>org.polarion.eclipse.team.svn.connector-4.0</id>
+			<layout>p2</layout>
+			<url>http://community.polarion.com/projects/subversive/download/eclipse/4.0/luna-site/</url>
+		</repository>
 			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
 	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
 		<url>http://download.vogella.com/luna/e4tools</url> </repository> -->
