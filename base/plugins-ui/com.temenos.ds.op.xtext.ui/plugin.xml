@@ -14,7 +14,6 @@
             class="com.temenos.ds.op.xtext.ui.internal.NODslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="com.temenos.ds.op.xtext.ui.BuilderGenerate"
             name="BuilderGenerate">
-            <keywordReference id="org.xtext.example.mydsl.ui.keyword_MyDsl"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
