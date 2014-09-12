@@ -48,6 +48,11 @@
       <import feature="org.eclipse.pde.api.tools.ee.feature"/>
       <import feature="org.eclipse.emf.transaction"/>
       <import feature="org.eclipse.team.svn"/>
+      <import feature="org.eclipse.team.svn.sources"/>
+      <import feature="org.eclipse.team.svn.resource.ignore.rules.jdt"/>
+      <import feature="org.eclipse.team.svn.resource.ignore.rules.jdt.sources"/>
+      <import feature="org.polarion.eclipse.team.svn.connector"/>
+      <import feature="org.polarion.eclipse.team.svn.connector.svnkit18"/> 
       <import plugin="com.google.guava.source"/>
       <import plugin="com.google.inject.source"/>
       <import plugin="org.mockito"/>
