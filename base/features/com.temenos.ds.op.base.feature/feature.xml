@@ -33,6 +33,7 @@
       <import plugin="org.slf4j.jul" version="1.7.2" />
       <import plugin="org.slf4j.jcl" version="1.7.2" />
       <import feature="org.eclipse.emf.eson.ui.feature"/>
+      <import plugin="org.apache.bcel" version="5.2.0" />
    </requires>
 
 </feature>
