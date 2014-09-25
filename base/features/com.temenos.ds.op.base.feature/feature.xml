@@ -39,6 +39,8 @@
       <import plugin="org.apache.xalan" version="2.7.1" />
       <import plugin="javax.mail" version="1.4.0" />
       <import plugin="javax.mail.glassfish" version="1.4.1" />
+      <import plugin="org.dom4j" version="1.6.1" />
+      <import plugin="org.apache.poi" version="3.9.0" />
    </requires>
 
 </feature>
