@@ -89,6 +89,11 @@
 			<layout>p2</layout>
 			<url>http://community.polarion.com/projects/subversive/download/eclipse/4.0/luna-site/</url>
 		</repository>
+		<repository>
+			<id>org.eclipse.ocl.ecore-5.0.1</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/mdt/ocl/updates/releases/5.0.1/</url>
+		</repository>
 			<!-- req. for org.eclipse.e4.core.tools in /*.base.sdk.repository/category.xml -->
 	<!-- Not working... :-( <repository> <id>vogella-e4tools-luna</id> <layout>p2</layout> 
 		<url>http://download.vogella.com/luna/e4tools</url> </repository> -->

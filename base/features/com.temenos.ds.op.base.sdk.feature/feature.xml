@@ -60,6 +60,8 @@
 	  <import plugin="edu.umd.cs.findbugs.plugin.eclipse"/>
 	  <import feature="net.sf.eclipsecs"/>
 	  <import feature="org.eclipselabs.xtext.utils.unittesting.feature"/>
+	  <import feature="org.eclipse.ocl.all.sdk.source"/>
+	  <import feature="org.eclipse.ocl.all.sdk"/>
    </requires>
 
 </feature>
