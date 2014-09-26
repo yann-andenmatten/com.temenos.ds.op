@@ -19,5 +19,11 @@
 			</enabledWhen>
 	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
         </page>
+        <page
+              category="com.temenos.ds.op.xtext.ui.BuilderGenerate"
+              class="com.temenos.ds.op.xtext.generator.ui.GenerationTimeLoggingPropertyPage"
+              id="com.temenos.ds.op.xtext.ui.multigenerate.timer"
+              name="MultiGenerateTimer">
+        </page>
    </extension>
 </plugin>
