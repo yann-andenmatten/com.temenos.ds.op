@@ -61,7 +61,6 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 	private volatile ImmutableList<IGenerator> generators;
 	private Map<String, IGenerator> classToGenerator;
 	private ThreadLocal<IBuildContext> buildContextLocal = new ThreadLocal<IBuildContext>();
-	private StopWatch stopWatch = new StopWatch();
 
 	@Inject PreferenceStoreAccessImpl preferenceStoreAccess;
 	
@@ -98,7 +97,7 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 					final Map<String, OutputConfiguration> outputConfigurations = getOutputConfigurations(context, generatorId);
 					// TODO refreshOutputFolders(context, outputConfigurations, subMonitor.newChild(1));
 					fileSystemAccess.setOutputConfigurations(outputConfigurations);
-					stopWatch.reset();
+					StopWatch stopWatch = new StopWatch();
 					generator.doGenerate(resource, fileSystemAccess);
 					GenerationTimeLogger.getInstance().updateTime(generatorId, (int)stopWatch.reset());
 				}

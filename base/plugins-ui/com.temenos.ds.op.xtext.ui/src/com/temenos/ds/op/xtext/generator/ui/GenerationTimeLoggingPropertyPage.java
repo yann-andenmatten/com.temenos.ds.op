@@ -4,36 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.layout.TableColumnLayout;
-import org.eclipse.jface.preference.IPreferencePageContainer;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnLayoutData;
 import org.eclipse.jface.viewers.ColumnWeightData;
-import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Layout;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.eclipse.ui.internal.dialogs.EmptyPreferencePage;
 import org.eclipse.ui.internal.dialogs.EmptyPropertyPage;
 
-import com.temenos.ds.op.xtext.generator.ui.GenerationTimeLoggingPropertyPage.GeneratorTimeModel;
-
+@SuppressWarnings("restriction")
 public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 	
 	private TableViewer tableViewer;
-	
 	
 	@Override
 	protected Control createContents(Composite parent) {
@@ -44,7 +32,7 @@ public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 		tableViewer.getTable().setHeaderVisible(true);
 		tableViewer.getTable().setLinesVisible(true);
 	
-		createTableViwerColumn(tableViewer,"Generator Id",new ColumnLabelProvider(){
+		createTableViwerColumn(tableViewer, "Generator ID", new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				if (element instanceof GeneratorTimeModel) {
@@ -55,7 +43,7 @@ public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 			}
 		}, new ColumnWeightData(1,50,true));
 
-		createTableViwerColumn(tableViewer,"Time Consumed in ms",new ColumnLabelProvider(){
+		createTableViwerColumn(tableViewer, "Time spent (in ms)", new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				if (element instanceof GeneratorTimeModel) {
@@ -70,7 +58,7 @@ public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 		return parent;
 	}
 	
-	class GeneratorTimeModel {
+	private static class GeneratorTimeModel {
 		private String id;
 		private int timeConsumed;
 
@@ -79,8 +67,6 @@ public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 			this.id = id;
 			this.timeConsumed = timeConsumed;
 		}
-		
-		
 	}
 	
 	private List<GeneratorTimeModel> createModel(){
@@ -104,4 +90,3 @@ public class GenerationTimeLoggingPropertyPage extends EmptyPropertyPage {
 		}
 	}
 }
-
