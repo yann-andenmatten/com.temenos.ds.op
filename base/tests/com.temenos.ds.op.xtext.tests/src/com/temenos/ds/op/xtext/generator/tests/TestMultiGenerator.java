@@ -12,7 +12,6 @@ package com.temenos.ds.op.xtext.generator.tests;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
-import org.eclipse.xtext.generator.IGenerator;
 
 /**
  * Example IMultiGenerator, for Tests.

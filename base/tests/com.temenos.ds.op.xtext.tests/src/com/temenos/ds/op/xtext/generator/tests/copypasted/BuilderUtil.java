@@ -36,6 +36,7 @@ import com.google.common.collect.Sets;
 /**
  * @author Sven Efftinge - Initial contribution and API
  */
+@SuppressWarnings("restriction")
 public class BuilderUtil {
 
 	public static String print(ImmutableList<Delta> deltas) {

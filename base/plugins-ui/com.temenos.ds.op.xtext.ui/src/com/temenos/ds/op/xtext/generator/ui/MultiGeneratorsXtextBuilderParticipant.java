@@ -182,7 +182,7 @@ public class MultiGeneratorsXtextBuilderParticipant extends BuilderParticipant /
 		private final static Logger logger = LoggerFactory.getLogger(MultiGeneratorsXtextBuilderParticipant.GeneratorReader.class);
 
 		private static final String ATT_CLASS = "class";
-		private static final String ATT_BUILDER_ID = "builderId";
+		// private static final String ATT_BUILDER_ID = "builderId";
 		
 		protected final String extensionPointID;
 		protected final Map<String, T> classNameToInstance;
