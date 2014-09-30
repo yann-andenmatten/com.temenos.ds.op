@@ -43,6 +43,7 @@
       <import plugin="org.apache.poi" version="3.9.0" />
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="org.apache.commons.net" version="3.1.0" />
+      <import feature="org.eclipse.emf.workspace"/>
    </requires>
 
 </feature>

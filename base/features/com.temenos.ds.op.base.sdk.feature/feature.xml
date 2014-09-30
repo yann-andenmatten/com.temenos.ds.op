@@ -53,6 +53,7 @@
       <import feature="org.eclipse.team.svn.resource.ignore.rules.jdt.sources"/>
       <import feature="org.polarion.eclipse.team.svn.connector"/>
       <import feature="org.polarion.eclipse.team.svn.connector.svnkit18"/> 
+      <import feature="org.eclipse.emf.workspace.source"/>
       <import plugin="com.google.guava.source"/>
       <import plugin="com.google.inject.source"/>
       <import plugin="org.mockito"/>
